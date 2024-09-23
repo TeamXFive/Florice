@@ -1,7 +1,7 @@
 function SignUp() {
     return (
         <div className="signup-container">
-            <h1>Página SignUp</h1>
+            <h1></h1>
 
         </div>
     )
