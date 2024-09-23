@@ -1,31 +1,36 @@
 
 import { Link } from 'react-router-dom'
+import '../../styles/NavBar/navbar.css'
 
 export default function NavBar() {
     return (
-        <nav className="mainNavBar">
-            <Link to="/" className="florice-title">
-                Florice
-            </Link>
+        
+    <nav className="mainNavBar">
 
-            <ul>
-                <li>
-                    <Link to="/">home</Link>
-                </li>
-                <li>
-                    <Link to="/sobre">sobre</Link>
-                </li>
-                <li>
-                    <Link to="/catalogo">catálogo</Link>
-                </li>
-                <li>
-                    <Link to="/mapa">mapa</Link>
-                </li>
-                <li>
-                    <Link to="/login">login</Link>
-                </li>
-            </ul>
+        <div className="florice-title">
+            <Link className="florice-name" to="/">FLORICE</Link>
+        </div>
+        
+        <ul className="ulPages">
+            <li className="divisor"></li>
 
-        </nav>
+            <li>
+                <Link className='linkItems' to="/">home</Link>
+            </li>
+            <li>
+                <Link className='linkItems' to="/sobre">sobre</Link>
+            </li>
+            <li>
+                <Link className='linkItems' to="/catalogo">catálogo</Link>
+            </li>
+            <li>
+                <Link className='linkItems' to="/mapa">mapa</Link>
+            </li>
+            <li>
+                <Link className='linkItems' to="/login">login</Link>
+            </li>
+        </ul>
+
+    </nav>
     )
 }
