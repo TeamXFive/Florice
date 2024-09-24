@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Andada+Pro:ital,wght@0,400..840;1,400..840&display=swap');
-                
+@import url("https://fonts.googleapis.com/css2?family=Andada+Pro:ital,wght@0,400..840;1,400..840&display=swap");
 
 .mainNavBar {
     display: flex;
@@ -7,46 +6,74 @@
     justify-content: space-between;
     background-color: hsl(135, 15%, 10%, 81%);
     border-radius: 17px;
-    height: 8vh;
+    min-height: 92px;
     width: 95%;
     margin-top: 2%;
-}
 
-.ulPages {
-    display: flex;
-    justify-content: space-between;
-    flex: 1;
-    list-style-type: none;
-    margin: 0;
-    margin-right: 10%;
-    padding: 0;
-    font-family: "Andada Pro", serif;
-}
+    &.home {
+        flex-direction: column;
 
-.ulPages li{
-    padding: 5px;
-    font-weight: 0;
-}
+        .florice-name {
+            color: white;
+            text-decoration: none;
+            font-size: 128px;
+        }
 
-.linkItems {
-    color: white;
-    text-decoration: none;
-    font-size: 30px;
-}
+        .divisor {
+            display: block;
+            flex: 1;
+            width: 80%;
+            height: 0px;
 
-.florice-title {
-    flex: 0 1 auto;
-    padding-left: 40px;
-    margin-right: 5%;
-}
+            margin: 0.75rem 0;
+            border-left: none;
+            border-top: 1px solid hsl(0, 0%, 100%, 50%);
+        }
 
-.florice-name {
-    color: white;
-    text-decoration: none;
-    font-family: "Andada Pro", serif;
-    font-size: 36px;
-}
+        .ulPages {
+            margin: 0;
 
-.divisor {
-    border-left: 2px solid hsl(0, 0%, 100%, 50%);
+            li {
+                margin: 0 1.25rem;
+            }
+        }
+    }
+
+    .florice-name {
+        color: white;
+        text-decoration: none;
+        font-size: 36px;
+    }
+
+    .divisor {
+        height: 80%;
+        border-left: 2px solid hsl(0, 0%, 100%, 50%);
+        margin: 0 1.5rem;
+    }
+
+    .ulPages {
+        display: flex;
+        justify-content: space-between;
+        flex: 1;
+        list-style-type: none;
+        margin: 0;
+        margin-right: 10%;
+        padding: 0;
+    }
+
+    .ulPages li {
+        padding: 5px;
+        font-weight: 0;
+    }
+
+    .linkItems {
+        color: white;
+        text-decoration: none;
+        font-size: 30px;
+    }
+
+    .florice-title {
+        flex: 0 1 auto;
+        padding-left: 40px;
+    }
 }

@@ -1,34 +1,28 @@
-import './styles/App.css'
-import NavBar from './components/Navbar/Navbar'
-import { Routes, Route } from 'react-router-dom'
-import Home from './pages/Home/Home'
-import Sobre from './pages/Sobre/Sobre'
-import Catalogo from './pages/Catalogo/Catalogo'
-import Mapa from './pages/Mapa/Mapa'
-import Login from './pages/Login/Login'
-import SignUp from './pages/SignUp/Signup'
-
+import "./styles/App.css";
+import NavBar from "./components/Navbar/Navbar";
+import { Routes, Route } from "react-router-dom";
+import Home from "./pages/Home/Home";
+import Sobre from "./pages/Sobre/Sobre";
+import Catalogo from "./pages/Catalogo/Catalogo";
+import Mapa from "./pages/Mapa/Mapa";
+import Login from "./pages/Login/Login";
+import SignUp from "./pages/SignUp/Signup";
 
 function App() {
+    return (
+        <div className="container-app">
+            <NavBar />
 
-  return (
-
-      <div className='container-app'>
-        
-        <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/sobre' element={<Sobre/>} />
-          <Route path='/catalogo' element={<Catalogo/>} />
-          <Route path='/mapa' element={<Mapa/>} />
-          <Route path='/login' element={<Login/>} />
-          <Route path='/signup' element={<SignUp/>} />
-        </Routes>
-
-        <NavBar/>
-
-      </div>
-      
-  )
+            <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/sobre" element={<Sobre />} />
+                <Route path="/catalogo" element={<Catalogo />} />
+                <Route path="/mapa" element={<Mapa />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/signup" element={<SignUp />} />
+            </Routes>
+        </div>
+    );
 }
 
-export default App
+export default App;
