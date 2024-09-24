@@ -1,0 +1,52 @@
+.home-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    flex: 1;
+    padding: 0px 32px;
+
+    & .hero {
+        flex: 0.65;
+        position: relative;
+        text-align: center;
+
+        & .btn-catalogue {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: -16px;
+            padding: 16px 32px;
+
+            background-color: #161e18;
+            border: 1px solid #78785b;
+
+            font-size: 24px;
+            color: white;
+            border-radius: 50px;
+        }
+
+        & img {
+            max-width: 100%;
+            width: 700px;
+            aspect-ratio: 737/491;
+            object-fit: cover;
+            border-radius: 224px;
+        }
+    }
+
+    & .about-container {
+        flex: 0.35;
+        padding: 2rem;
+
+        p {
+            border-radius: 18px;
+            font-size: 26px;
+            padding: 1.75rem;
+            background-color: rgba(244, 241, 145, 0.28);
+            color: white;
+        }
+    }
+}
