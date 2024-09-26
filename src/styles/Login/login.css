@@ -3,3 +3,10 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
 }
+
+.loginBorder {
+    margin-top: 40px;
+    border-bottom: 1px solid white;
+    position: absolute;
+    width: 100px;
+}

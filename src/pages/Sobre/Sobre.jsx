@@ -1,3 +1,5 @@
+import '../../styles/Sobre/sobre.css'
+
 function Sobre() {
     return (
         <div className="sobre-container">

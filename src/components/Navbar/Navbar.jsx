@@ -4,6 +4,14 @@ import { Link, useLocation } from "react-router-dom";
 export default function NavBar() {
     const location = useLocation();
     const isHomePage = location.pathname === "/";
+    const isSobrePage = location.pathname === "/sobre"
+    const isCatalogoPage = location.pathname === "/catalogo"
+    const isMapaPage = location.pathname === "/mapa"
+    const isLoginPage = location.pathname === "/login"
+    
+    
+
+
 
     return (
         <nav className={`mainNavBar ${isHomePage && "home"}`}>
@@ -24,21 +32,25 @@ export default function NavBar() {
                 <li>
                     <Link className="linkItems" to="/sobre">
                         sobre
+                        <div className={isSobrePage ? "sobreBorder" : ""}></div>
                     </Link>
                 </li>
                 <li>
                     <Link className="linkItems" to="/catalogo">
                         catálogo
+                        <div className={isCatalogoPage ? "catalogoBorder" : ""}></div>
                     </Link>
                 </li>
                 <li>
                     <Link className="linkItems" to="/mapa">
                         mapa
+                        <div className={isMapaPage ? "mapaBorder" : ""}></div>
                     </Link>
                 </li>
                 <li>
                     <Link className="linkItems" to="/login">
-                        login
+                        <div>login</div>
+                        <div className={isLoginPage ? "loginBorder" : ""}></div>
                     </Link>
                 </li>
             </ul>
