@@ -1,3 +1,5 @@
+import "../../styles/Catalogo/catalogo.css"
+
 function Catalogo() {
     return (
         <div className="catalogo-container">
