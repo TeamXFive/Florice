@@ -11,7 +11,7 @@ import SignUp from "./pages/SignUp/Signup";
 function App() {
     return (
         <div className="container-app">
-            <NavBar />
+            {/* <NavBar /> */}
 
             <Routes>
                 <Route path="/" element={<Home />} />

@@ -1,9 +1,11 @@
 import "../../styles/Catalogo/catalogo.css"
+import NavBar from "../../components/Navbar/Navbar";
 
 function Catalogo() {
     return (
         <div className="catalogo-container">
-            <h1></h1>
+            
+            <NavBar />
 
         </div>
     )

@@ -1,9 +1,11 @@
 import "../../styles/Mapa/mapa.css"
+import NavBar from "../../components/Navbar/Navbar";
 
 function Mapa() {
     return (
         <div className="mapa-container">
-            <h1></h1>
+            
+            <NavBar />
 
         </div>
     )
