@@ -6,7 +6,7 @@ function Home() {
     return (
         <div className="home-container">
             <NavBar />
-            <div>
+            <div className="home-content">
                 <div className="hero">
                     <img src={HeroImage} alt="Hero" />
                     <button className="btn-catalogue">Conheça o catálogo</button>

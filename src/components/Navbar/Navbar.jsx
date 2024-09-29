@@ -10,9 +10,6 @@ export default function NavBar() {
     const isLoginPage = location.pathname === "/login"
     
     
-
-
-
     return (
         <nav className={`mainNavBar ${isHomePage && "home"}`}>
             <div className="florice-title">
