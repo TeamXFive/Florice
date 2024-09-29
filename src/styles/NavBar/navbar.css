@@ -7,13 +7,22 @@
     background-color: hsl(135, 15%, 10%, 81%);
     border-radius: 17px;
     min-height: 92px;
-    width: 95%;
+    width: 100%;
     margin-top: 2%;
+    padding-bottom: 10px;
+    box-sizing: border-box;
 
     &.home {
+        border: 2px solid green;
         flex-direction: column;
+        display: flex;
+        align-items: center;
+        justify-content: center;
 
         .florice-name {
+            height: 100%;
+            border: 2px solid blue;
+            padding-top: 10px;
             color: white;
             text-decoration: none;
             font-size: 128px;
@@ -24,19 +33,30 @@
             flex: 1;
             width: 80%;
             height: 0px;
-
             margin: 0.75rem 0;
             border-left: none;
             border-top: 1px solid hsl(0, 0%, 100%, 50%);
         }
 
         .ulPages {
+            max-width: 100%;
             margin: 0;
+            border: 1px solid red;
 
             li {
-                margin: 0 1.25rem;
+                /* margin: 0 5%; */
             }
         }
+
+        @media (max-width: 720px) {
+            .florice-name {
+                font-size: 28px;
+            }
+            .ulPages .linkItems {
+                font-size: 10px;
+            }
+        }
+
     }
 
     .florice-name {

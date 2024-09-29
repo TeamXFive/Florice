@@ -5,7 +5,9 @@ import NavBar from "../../components/Navbar/Navbar";
 function Home() {
     return (
         <div className="home-container">
-            <NavBar />
+            <div className="nav-bar">
+                <NavBar />
+            </div>    
             <div className="home-content">
                 <div className="hero">
                     <img src={HeroImage} alt="Hero" />
