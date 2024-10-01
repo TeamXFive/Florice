@@ -8,7 +8,7 @@
     border-radius: 17px;
     min-height: 92px;
     width: 95%;
-    margin-top: 2%;
+    margin: 2% 0%;
 
     &.home {
         flex-direction: column;
@@ -16,7 +16,7 @@
         .florice-name {
             color: white;
             text-decoration: none;
-            font-size: 128px;
+            font-size: 96px;
         }
 
         .divisor {
@@ -32,6 +32,7 @@
 
         .ulPages {
             margin: 0;
+            margin-bottom: 0.75rem;
 
             li {
                 margin: 0 1.25rem;
