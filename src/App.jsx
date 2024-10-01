@@ -10,18 +10,25 @@ import SignUp from "./pages/SignUp/Signup";
 
 function App() {
     return (
-        <div className="container-app">
-            <NavBar />
+        <>
+            <header>
+                <NavBar />
+            </header>
 
-            <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/sobre" element={<Sobre />} />
-                <Route path="/catalogo" element={<Catalogo />} />
-                <Route path="/mapa" element={<Mapa />} />
-                <Route path="/login" element={<Login />} />
-                <Route path="/signup" element={<SignUp />} />
-            </Routes>
-        </div>
+            <main>
+                <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/sobre" element={<Sobre />} />
+                    <Route path="/catalogo" element={<Catalogo />} />
+                    <Route path="/mapa" element={<Mapa />} />
+                    <Route path="/login" element={<Login />} />
+                    <Route path="/signup" element={<SignUp />} />
+                </Routes>
+            </main>
+
+            <footer>
+            </footer>
+        </>
     );
 }
 
