@@ -1,12 +1,11 @@
-import "../../styles/Mapa/mapa.css"
+import "../../styles/Mapa/Mapa.css";
 
 function Mapa() {
     return (
-        <div className="mapa-container">
-            <h1></h1>
-
-        </div>
-    )
+        <>
+            <span>Mapa vem aqui hihihi</span>
+        </>
+    );
 }
 
 export default Mapa;
