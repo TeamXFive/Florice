@@ -1,14 +1,11 @@
-import "../../styles/Mapa/mapa.css"
-import NavBar from "../../components/Navbar/Navbar";
+import "../../styles/Mapa/Mapa.css";
 
 function Mapa() {
     return (
-        <div className="mapa-container">
-            
-            <NavBar />
-
-        </div>
-    )
+        <>
+            <span>Mapa vem aqui hihihi</span>
+        </>
+    );
 }
 
 export default Mapa;

@@ -13,14 +13,19 @@ function App() {
         <div className="container-app">
             {/* <NavBar /> */}
 
-            <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/sobre" element={<Sobre />} />
-                <Route path="/catalogo" element={<Catalogo />} />
-                <Route path="/mapa" element={<Mapa />} />
-                <Route path="/login" element={<Login />} />
-                <Route path="/signup" element={<SignUp />} />
-            </Routes>
+            <main>
+                <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/sobre" element={<Sobre />} />
+                    <Route path="/catalogo" element={<Catalogo />} />
+                    <Route path="/mapa" element={<Mapa />} />
+                    <Route path="/login" element={<Login />} />
+                    <Route path="/signup" element={<SignUp />} />
+                </Routes>
+            </main>
+
+            <footer>
+            </footer>
         </div>
     );
 }
