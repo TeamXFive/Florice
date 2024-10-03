@@ -1,9 +1,11 @@
 import '../../styles/Sobre/sobre.css'
+import NavBar from '../../components/Navbar/Navbar';
 
 function Sobre() {
     return (
         <div className="sobre-container">
-            <h1></h1>
+            
+            <NavBar />
 
         </div>
     )

@@ -10,10 +10,8 @@ import SignUp from "./pages/SignUp/Signup";
 
 function App() {
     return (
-        <>
-            <header>
-                <NavBar />
-            </header>
+        <div className="container-app">
+            {/* <NavBar /> */}
 
             <main>
                 <Routes>
@@ -28,7 +26,7 @@ function App() {
 
             <footer>
             </footer>
-        </>
+        </div>
     );
 }
 

@@ -10,20 +10,32 @@ export default function NavBar() {
     const isLoginPage = location.pathname === "/login"
     
     
-
-
-
     return (
         <nav className={`mainNavBar ${isHomePage && "home"}`}>
-            <div className="florice-title">
-                <Link className="florice-name" to="/">
-                    FLORICE
-                </Link>
-            </div>
+            {isHomePage && (
+                <div className="florice-title">
+                    <Link className="florice-name" to="/">
+                        FLORICE
+                    </Link>
+                </div>
+            )}
+
 
             <span className="divisor" />
 
             <ul className="ulPages">
+
+                {!isHomePage && (
+                    <li>
+                        <Link className="linkItems" to="/">
+                            <div className="floricelink">Florice</div>
+                        </Link>
+                    </li>
+
+                )}
+                <li>
+                    <div className={!isHomePage ? "headerBorder" : ""}></div>
+                </li>
                 <li>
                     <Link className="linkItems" to="/">
                         home
@@ -53,6 +65,7 @@ export default function NavBar() {
                         <div className={isLoginPage ? "loginBorder" : ""}></div>
                     </Link>
                 </li>
+
             </ul>
         </nav>
     );

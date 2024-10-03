@@ -1,5 +1,13 @@
-body {
-    background-image: url('../../assets/images/Login/background.png');
+.login-container{
+    background-image: url('../../assets/images/background/background-all.png');
+    height: 100vh;
+    width: 100%;
     background-size: cover;
     background-repeat: no-repeat;
+}
+.loginBorder {
+    margin-top: 40px;
+    border-bottom: 1px solid white;
+    position: absolute;
+    width: 100px;
 }
