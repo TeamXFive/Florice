@@ -4,7 +4,9 @@ import NavBar from '../../components/Navbar/Navbar';
 function Login() {
     return (
         <div className="login-container">
-            <NavBar />
+            <div className="nav-bar">
+                <NavBar />
+            </div> 
         </div>
     )
 }

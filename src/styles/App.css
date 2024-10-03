@@ -2,14 +2,14 @@
 
 body {
     font-family: "Andada Pro", "arial";
-    /* background-color: hsl(135, 15%, 10%, 81%); */
+    background-color: hsl(135, 15%, 10%, 81%);
     color: white;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-#root {
+/* #root {
     height: auto;
     min-height: 100vh;
     width: 100%;
@@ -21,17 +21,17 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-}
+} */
 
-header {
+/* header {
     min-height: 92px;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-}
+} */
 
-main {
+/* main {
     min-height: calc(100vh - 92px);
     height: 100%;
     min-width: 100%;
@@ -41,4 +41,4 @@ main {
     justify-content: flex-start;
     align-items: center;
     padding: 0px 32px;
-}
+} */
