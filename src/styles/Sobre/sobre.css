@@ -1,0 +1,32 @@
+.sobre-container{
+    display: flex;
+    background-image: url("../../assets/images/sobre/background-sobre.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+
+
+    & .nav-bar{
+        padding: 0px 32px;
+    }
+
+
+    & .container-low{
+        display: grid;
+        place-items: center;
+        width: 100%;
+        height: 100%;
+
+        & .container-conteudo{
+            display: grid;
+            width: 100vw;
+            height: 475px;
+            background-color: #516341;
+            opacity: 88%;
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+}
