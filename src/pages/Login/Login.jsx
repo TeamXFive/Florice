@@ -17,7 +17,7 @@ function Login() {
 
                 <div className="input-container">
 
-                    <div>
+                    <div className="input-box">
                         <img src="src\assets\images\Login\email.png" alt="" className='email-icon' />    
                         <input
                             className="input-style"
@@ -26,7 +26,7 @@ function Login() {
                             placeholder='email'/>
                     </div>
     
-                    <div>
+                    <div className="input-box">
                         <img src="src\assets\images\Login\password.png" alt="" className='password-icons'/> 
                         <input
                         className="input-style"
@@ -40,6 +40,20 @@ function Login() {
                     <p className="register-text">
                         Se ainda não tem uma conta, <Link to="/signup" className="clickHere">clique aqui</Link> para fazer o seu cadastro.
                     </p>
+                </div>
+
+                <div className="buttons">
+                    <button className="enterButton">Entrar</button>
+                </div>
+
+                <div className="orSignup">
+                    <p>ou<br></br>entre com suas redes</p>
+                </div>
+
+                <div className="socialMediasIcon">
+                    <img src="src\assets\images\Login\linkedin.png" alt="" />
+                    <img src="src\assets\images\Login\facebook.png" alt="" />
+                    <img src="src\assets\images\Login\google.png" alt="" />
                 </div>
 
                 

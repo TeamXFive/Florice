@@ -26,19 +26,34 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding-bottom: 20px;
+    position: relative;
+}
+
+.flower-icon {
+    position: absolute;
+    margin-top: 48px;
+    top: 0;
+
+}
+
+.login-name {
+    margin-top: 140px;
+    color: #DAC47C;
+    font-size: 48px;
 }
 
 .input-container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    padding-bottom: 10px;
     align-items: center;
 
 }
 
 .input-style {
-    width: 300px;
-    height: 40px;
+    width: 500px;
+    height: 60px;
     padding-left: 40px;
     margin-bottom: 5%;
     border-radius: 5px;
@@ -47,34 +62,40 @@
     background-color: #b8b8b8;
 }
 
-.email-icon {
+.email-icon, .password-icons {
     position: absolute;
     height: 30px;
-    margin-top: 5px;
+    margin-top: 15px;
     padding-left: 5px;
-
-}
-
-.password-icons {
-    position: absolute;
-    height: 30px;
-    margin-top: 5px; 
-    padding-left: 5px;
-
 }
 
 
-.login-name {
-    color: #DAC47C;
-    font-size: 48px;
-}
+@media (max-width: 720px) {
+    .input-style {
+        width: 300px;
+        height: 50px;
+    }
 
+    .login-content {
+        height: 70%;
+        width: 80%;
+    }
+
+    .email-icon, .password-icons {
+        position: absolute;
+        height: 30px;
+        margin-top: 10px;
+        padding-left: 5px;
+    }
+    
+}
 
 .register-text-container {
     display: flex;
     width: 80%;
     align-items: center;
     justify-content: center;
+    font-family: "Andada Pro", "arial";
 }
 
 .register-text {
@@ -83,4 +104,36 @@
 
 .clickHere {
     color: #0C991A;
+}
+
+.enterButton {
+    height: 50px;
+    width: 250px;
+    border-radius: 30px;
+    background-color: #0C991A;
+    color: white;
+    font-size: 24px;
+    font-family: "Andada Pro", "arial";
+    border-left-color: gray;
+    border-top-color: gray;
+    border-right-color: white; 
+    border-bottom-color: white;
+}
+
+.enterButton:active, .enterButton:focus {
+    border-top-color: rgb(106, 192, 106);
+    border-left-color: rgb(106, 192, 106);
+}
+
+.orSignup {
+    text-align: center;
+    color: #898989;
+}
+
+.socialMediasIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 25px;
 }
