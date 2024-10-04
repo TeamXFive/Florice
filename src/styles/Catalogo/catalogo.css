@@ -1,0 +1,37 @@
+.catalogo-container {
+    background-image: url("../../assets/images/background/background-all.png");
+    display: flex;
+    background-size: cover;
+    background-repeat: no-repeat;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+}
+.catalogoBorder {
+    margin-top: 40px;
+    border-bottom: 1px solid white;
+    position: absolute;
+    width: 120px;
+}
+
+.catalogo-content {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    place-items: center;
+}
+.card {
+    display: grid;
+    height: 100%;
+    width: 33%;
+}
+
+.titulo {
+    background-color: #8E8645;
+    opacity: 90%;
+    height: 50%;
+    border-radius: 10px;
+    font-size: 10px;
+}
