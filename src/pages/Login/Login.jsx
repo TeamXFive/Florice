@@ -11,7 +11,7 @@ function Login() {
             </div>
 
             <div className="login-content">
-                <img src="src\assets\images\Login\flower.png" alt="" className='flower-icon'/>
+                <img src="src\assets\images\Login\flower-login.png" alt="" className='flower-icon'/>
 
                 <p className="login-name">Login</p>
 

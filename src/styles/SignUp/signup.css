@@ -1,0 +1,114 @@
+.signup-container {
+    background-image: url('../../assets/images/background/background-all.png');
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    width: 100%;
+}
+
+.signup-content {
+    margin-top: 5%;
+    height: 70%;
+    width: 90%;
+    display: flex;
+    align-items: center;
+}
+
+.welcome-signup {
+    width: 40%; 
+    background-color: #4c5d3aad;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 2%;
+
+    & .has-account{
+        font-size: 36px;
+        text-align: center;
+    }
+
+    & .go-to-login {
+        font-size: 20px;
+        text-align: center;
+
+    }
+
+    & .flower-icon-signup {
+        height: 40%;
+        margin-top: 2%;
+        max-width: 100%;
+        max-height: fit-content;
+    }
+}
+
+.create-account {
+    width: 60%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 3%;
+}
+
+.create-account-call {
+    color: #3D5626;
+    font-size: 36px;
+}
+
+.inputs-signup {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 5%;
+}
+
+.individual-input-container {
+    max-width: 70%;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    /* border: 2px solid #0CA21B; */
+    
+}
+
+.box-img {
+    border: 2px solid gray;
+    height: 60px;
+    width: 60px;
+    left: 0;
+    position: absolute;
+    top: 50%; 
+    transform: translateY(-50%);
+    padding: 10px;
+}
+
+.input-style-signup {
+    max-width: 100%;
+    min-width: 100%;
+    width: 500px;
+    height: 60px;
+    padding-left: 70px;
+    border: 1px solid;
+    outline: none;
+}
+
+.input-style-signup:hover {
+    border:1px solid #0C991A;
+}
+
+.input-style-signup:focus {
+    border: 3px solid #0C991A;
+
+}
+/* 
+.individual-input-container:active {
+    border-color: #0C991A;
+} */
