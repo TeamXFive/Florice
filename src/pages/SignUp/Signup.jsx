@@ -1,8 +1,33 @@
 import '../../styles/SignUp/signup.css'
 import NavBar from '../../components/Navbar/Navbar';
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
 
 function SignUp() {
+
+    const [imgUser, setNewImageUser] = useState("src/assets/images/Login/user-gray.png")
+    const [imgEmail, setNewImageEmail] = useState("src/assets/images/Login/email.png")
+    const [imgPassword, setNewImagePassword] = useState("src/assets/images/Login/password.png")
+
+    const [notFocusedUser, isOnFocusUser] = useState(false);
+    const [notFocusedEmail, isOnFocusEmail] = useState(false);
+    const [notFocusedPassword, isOnFocusPassword] = useState(false);
+
+    const changeImage = (setNewImage, imgUrl, checkFocus, type) => {
+        setNewImage(imgUrl)
+
+        switch (type) {
+            case "user":
+                isOnFocusUser(checkFocus)
+                break
+            case "email":
+                isOnFocusEmail(checkFocus)
+                break
+            case "password":
+                isOnFocusPassword(checkFocus)
+                break
+        }
+    }
 
     return (
         <div className="signup-container">
@@ -18,7 +43,7 @@ function SignUp() {
 
                     <p className="go-to-login">Seja bem-vindo, <Link to="/login" className="clickHere">clique aqui </Link>para <br></br>logar na sua conta.</p>
 
-                    <img src="src\assets\images\Login\flower.png" className="flower-icon-signup" />
+                    <img src="src/assets/images/Login/flower.png" className="flower-icon-signup" />
 
                 </div>
 
@@ -29,24 +54,28 @@ function SignUp() {
                     <div className="inputs-signup">
 
                         <div className="individual-input-container">
-                            <img className="box-img" src="src\assets\images\Login\user-gray.png"/>
+                            <img className={notFocusedUser ? "box-img-focus" : "box-img"} src={imgUser}/>
                             
                             <input
                                 className='input-style-signup'
                                 placeholder='username'
                                 type='username'
+                                onBlur={() => changeImage(setNewImageUser, "src/assets/images/Login/user-gray.png", false, "user")}
+                                onFocus={() => changeImage(setNewImageUser, "src/assets/images/Login/user-green.png", true, "user")}
 
                             />
                         </div>
  
 
                         <div className="individual-input-container">
-                            <img className="box-img" src="src\assets\images\Login\email.png"/>
+                            <img className={notFocusedEmail ? "box-img-focus" : "box-img"}  src={imgEmail}/>
 
                             <input
                                 className='input-style-signup'
                                 placeholder='email'
                                 type='email'
+                                onBlur={() => changeImage(setNewImageEmail, "src/assets/images/Login/email.png", false, "email")}
+                                onFocus={() => changeImage(setNewImageEmail, "src/assets/images/Login/email-green.png", true, "email")}
 
                             />
 
@@ -54,12 +83,14 @@ function SignUp() {
 
 
                         <div className="individual-input-container">
-                            <img className="box-img" src="src\assets\images\Login\password.png"/>
+                            <img className={notFocusedPassword ? "box-img-focus" : "box-img"}  src={imgPassword}/>
 
                             <input
                                 className='input-style-signup'
                                 placeholder='password'
                                 type='password'
+                                onBlur={() => changeImage(setNewImagePassword, "src/assets/images/Login/password.png", false, "password")}
+                                onFocus={() => changeImage(setNewImagePassword, "src/assets/images/Login/password-green.png", true, "password")}
 
                             />
                         </div>
@@ -75,9 +106,9 @@ function SignUp() {
                     </div>
 
                     <div className="socialMediasIcon">
-                        <img src="src\assets\images\Login\linkedin.png" alt="" />
-                        <img src="src\assets\images\Login\facebook.png" alt="" />
-                        <img src="src\assets\images\Login\google.png" alt="" />
+                        <img src="src/assets/images/Login/linkedin.png" alt="" />
+                        <img src="src/assets/images/Login/facebook.png" alt="" />
+                        <img src="src/assets/images/Login/google.png" alt="" />
                     </div>
 
                 </div>
