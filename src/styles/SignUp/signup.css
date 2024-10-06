@@ -24,24 +24,24 @@
     align-items: center;
     flex-direction: column;
     gap: 2%;
+}
 
-    & .has-account{
-        font-size: 36px;
-        text-align: center;
-    }
+.has-account{
+    font-size: 36px;
+    text-align: center;
+}
 
-    & .go-to-login {
-        font-size: 20px;
-        text-align: center;
+.go-to-login {
+    font-size: 20px;
+    text-align: center;
 
-    }
+}
 
-    & .flower-icon-signup {
-        height: 40%;
-        margin-top: 2%;
-        max-width: 100%;
-        max-height: fit-content;
-    }
+.flower-icon-signup {
+    height: 40%;
+    margin-top: 2%;
+    max-width: 100%;
+    max-height: fit-content;
 }
 
 .create-account {
@@ -52,7 +52,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    gap: 3%;
+    gap: 2%;
 }
 
 .create-account-call {
@@ -75,12 +75,22 @@
     display: flex;
     justify-content: center;
     position: relative;
-    /* border: 2px solid #0CA21B; */
-    
+
 }
 
 .box-img {
     border: 2px solid gray;
+    height: 60px;
+    width: 60px;
+    left: 0;
+    position: absolute;
+    top: 50%; 
+    transform: translateY(-50%);
+    padding: 10px;
+}
+
+.box-img-focus {
+    border: 2px solid #0C991A;
     height: 60px;
     width: 60px;
     left: 0;
@@ -107,8 +117,36 @@
 .input-style-signup:focus {
     border: 3px solid #0C991A;
 
+    .box-img {
+        border: 2px solid #0C991A;
+    }
+
 }
-/* 
-.individual-input-container:active {
-    border-color: #0C991A;
-} */
+
+.orSignup {
+    margin-top: -10px;
+}
+
+.socialMediasIcon {
+    cursor: pointer;
+}
+
+@media (max-width: 720px) {
+    .enterButton {
+        height: 50px;
+        width: 180px;
+        font-size: 20px;
+    }
+
+    .flower-icon-signup {
+        height: 20%;
+    }
+
+    .go-to-login {
+        font-size: 15px;
+    }
+
+    .has-account {
+        font-size: 20px;
+    }
+}
