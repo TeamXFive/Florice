@@ -1,37 +1,52 @@
 import "../../styles/NavBar/navbar.css";
+import { useEffect, useRef, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import MenuIcon from "../../assets/icons/menu.svg?react";
 
 export default function NavBar() {
     const location = useLocation();
     const isHomePage = location.pathname === "/";
-    const isSobrePage = location.pathname === "/sobre"
-    const isCatalogoPage = location.pathname === "/catalogo"
-    const isMapaPage = location.pathname === "/mapa"
-    const isLoginPage = location.pathname === "/login"
-    
-    
+    const isSobrePage = location.pathname === "/sobre";
+    const isCatalogoPage = location.pathname === "/catalogo";
+    const isMapaPage = location.pathname === "/mapa";
+    const isLoginPage = location.pathname === "/login";
+
+    const menuRef = useRef();
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+    useEffect(() => {
+        menuRef.current?.focus();
+    }, [isMenuOpen]);
+
     return (
         <nav className={`mainNavBar ${isHomePage && "home"}`}>
-            {isHomePage && (
-                <div className="florice-title">
-                    <Link className="florice-name" to="/">
-                        FLORICE
-                    </Link>
-                </div>
-            )}
+            <div className="florice-title">
+                <Link className="florice-name" to="/">
+                    FLORICE
+                </Link>
+            </div>
 
+            <button
+                className="menu-button"
+                onClick={() => setIsMenuOpen((prev) => !prev)}
+            >
+                <MenuIcon />
+            </button>
 
             <span className="divisor" />
 
-            <ul className="ulPages">
-
+            <ul
+                ref={menuRef}
+                className={`ulPages ${isMenuOpen ? "open" : "closed"}`}
+                onBlur={() => setIsMenuOpen(false)}
+                tabIndex={-1}
+            >
                 {!isHomePage && (
                     <li>
                         <Link className="linkItems" to="/">
                             <div className="floricelink">Florice</div>
                         </Link>
                     </li>
-
                 )}
                 <li>
                     <div className={!isHomePage ? "headerBorder" : ""}></div>
@@ -50,7 +65,9 @@ export default function NavBar() {
                 <li>
                     <Link className="linkItems" to="/catalogo">
                         catálogo
-                        <div className={isCatalogoPage ? "catalogoBorder" : ""}></div>
+                        <div
+                            className={isCatalogoPage ? "catalogoBorder" : ""}
+                        ></div>
                     </Link>
                 </li>
                 <li>
@@ -65,7 +82,6 @@ export default function NavBar() {
                         <div className={isLoginPage ? "loginBorder" : ""}></div>
                     </Link>
                 </li>
-
             </ul>
         </nav>
     );

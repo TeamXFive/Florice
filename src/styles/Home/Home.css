@@ -10,25 +10,22 @@
     flex-direction: column;
     align-items: center;
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
     padding: 0px 32px;
 
     & .home-content {
-        /* background-color: gray; */
         display: flex;
         margin-top: 5%;
         align-items: center;
-        /* border: 1px solid red; */
     }
-      & .hero {
+
+    & .hero {
         display: flex;
         align-items: center;
         justify-content: center;
         width: 50%;
-        /* flex: 1; */
         position: relative;
         text-align: center;
-        /* border: 1px solid yellow; */
 
         & .btn-catalogue {
             position: absolute;
@@ -37,14 +34,14 @@
             bottom: -10px;
             padding: 16px 32px;
             background-color: #161e18;
-            /* border: 1px solid #78785b; */
             font-size: 24px;
             color: white;
             border-radius: 50px;
+            border: 1px solid #212a23;
+            box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.75);
         }
 
         & img {
-            
             max-width: 100%;
             width: 600px;
             max-height: 80%;
@@ -56,13 +53,11 @@
 
     & .about-container {
         display: flex;
-        /* flex: 2; */
         width: 50%;
         padding: 20px;
         height: 100%;
         justify-content: center;
         align-items: center;
-        /* border: 1px solid green; */
 
         p {
             border-radius: 18px;
@@ -70,6 +65,47 @@
             padding: 1.75rem;
             background-color: rgba(244, 241, 145, 0.28);
             color: white;
+        }
+    }
+}
+
+@media (max-width: 576px) {
+    .home-container {
+        padding: 0px;
+
+        & .home-content {
+            padding: 0px 8px;
+            flex-direction: column;
+
+            & .hero {
+                flex-direction: column;
+                justify-content: center;
+                width: 100%;
+                margin-bottom: 1rem;
+
+                & img {
+                    width: 100%;
+                    border-radius: 18px;
+                }
+
+                & .btn-catalogue {
+                    width: 80%;
+                    padding: 8px;
+                    bottom: 8px;
+                }
+            }
+
+            & .about-container {
+                width: 100%;
+                padding: 0px;
+                height: 100%;
+
+                p {
+                    padding: 1rem;
+                    margin: 0px 0px 1rem 0px;
+                    font-size: 20px;
+                }
+            }
         }
     }
 }
