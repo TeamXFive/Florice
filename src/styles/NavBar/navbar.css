@@ -21,7 +21,6 @@
 
         .florice-name {
             height: 100%;
-            /* border: 2px solid blue; */
             padding-top: 10px;
             color: white;
             text-decoration: none;
@@ -43,23 +42,13 @@
             display: flex;
             justify-content: center;
             margin: 0;
-            /* gap: 50px; */
-            border: 2px solid red;
-
-            li {
-                /* margin: 0 5%; */
-            }
         }
 
         @media (max-width: 720px) {
             .florice-name {
                 font-size: 28px;
             }
-            .ulPages .linkItems {
-                font-size: 10px;
-            }
         }
-
     }
 
     .florice-name {
@@ -85,11 +74,16 @@
         margin: 0;
         margin-right: 10%;
         padding: 0;
+        flex-wrap: wrap;
     }
 
     .ulPages li {
         padding: 5px;
         font-weight: 0;
+
+        &:not(:last-of-type) {
+            margin-right: 1.5rem;
+        }
     }
 
     .linkItems {
@@ -105,6 +99,7 @@
     .florice-title {
         flex: 0 1 auto;
         padding-left: 40px;
+        display: flex;
     }
 
     .headerBorder {
@@ -117,5 +112,98 @@
         display: flex;
         justify-content: center;
         align-items: center;
+    }
+
+    &:not(.home) {
+        .florice-title {
+            display: none;
+        }
+    }
+
+    .menu-button {
+        display: none;
+    }
+}
+
+@media (max-width: 576px) {
+    .mainNavBar {
+        margin: 8px;
+        box-sizing: border-box;
+        width: calc(100% - 16px);
+
+        .florice-name {
+            font-size: 28px;
+        }
+
+        &.home {
+            flex-direction: row;
+
+            .florice-name {
+                padding-top: 0;
+            }
+        }
+
+        .florice-title {
+            margin-left: auto;
+        }
+
+        .menu-button {
+            margin-left: auto;
+            display: block;
+            margin-right: 1.5rem;
+
+            background-color: transparent;
+            border: 1px solid #ffffff47;
+            border-radius: 4px;
+
+            svg {
+                width: 16px;
+                height: 16px;
+                object-fit: contain;
+                path {
+                    fill: #fff;
+                }
+            }
+        }
+
+        &:not(.home) {
+            .florice-title {
+                display: block;
+            }
+        }
+
+        &.home .divisor,
+        .divisor {
+            display: none;
+        }
+
+        .divisor .ulPages {
+            display: none;
+        }
+
+        .ulPages {
+            position: absolute;
+            display: list-item;
+            background-color: rgba(22, 29, 24, 0.8);
+            top: 0px;
+            bottom: 0px;
+            width: 260px;
+            left: -300px;
+            z-index: 999;
+            transition: left 0.3s ease-in-out;
+
+            a:has(.floricelink),
+            li:has(.headerBorder) {
+                display: none;
+            }
+
+            &.open {
+                left: 0px;
+            }
+
+            li:not(:last-of-type) {
+                margin-right: 0;
+            }
+        }
     }
 }
