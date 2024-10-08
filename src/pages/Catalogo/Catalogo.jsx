@@ -1,6 +1,19 @@
 import "../../styles/Catalogo/catalogo.css"
 import NavBar from "../../components/Navbar/Navbar";
-import {Link} from 'react-router-dom'
+import "swiper/css";
+import "swiper/css/effect-coverflow";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+import "swiper/css/autoplay";
+import "swiper/css/effect-coverflow";
+import { Swiper, SwiperSlide } from "swiper/react";
+import {
+    EffectCoverflow,
+    Pagination,
+    Navigation,
+    Autoplay,
+} from "swiper/modules";
+import {Link} from 'react-router-dom';
 
 
 function Catalogo() {
@@ -9,12 +22,13 @@ function Catalogo() {
             <div className="nav-bar">
                 <NavBar/>
             </div>
+            
             <div className="catalogo-content">
                 <div className="card">
                     <div className="titulo">
                         <h3>Triticum aestivum (Trigo Resiliente)</h3>
                     </div>
-                    <div className="corpo-a">
+                    <div className="corpo">
                         <ul className="catalogo-card">
                             <li>Fenótipo: Tolerância à seca, altura média, folhas estreitas.</li>
                             <li>Local: Região semiárida do Nordeste brasileiro.</li>
@@ -29,7 +43,7 @@ function Catalogo() {
                     <div className="titulo">
                         <h3>Oryza sativa (Arroz Tolerante à Salinidade)</h3>
                     </div>
-                    <div className="corpo-b">
+                    <div className="corpo">
                         <ul className="catalogo-card">
                             <li>Fenótipo: Plantas de porte médio, grãos médios e resistentes ao sal.</li>
                             <li>Local: Delta do Mekong, Vietnã.</li>
@@ -44,7 +58,7 @@ function Catalogo() {
                     <div className="titulo">
                         <h3>Zea mays (Milho Tolerante ao Frio)</h3>
                     </div>
-                    <div className="corpo-c">
+                    <div className="corpo">
                         <ul lassName="catalogo-card">
                             <li>Fenótipo: Estatura baixa, folhas largas e resistentes a geadas leves.</li>
                             <li>Local: Altiplano Andino, Bolívia.</li>
@@ -55,8 +69,6 @@ function Catalogo() {
                         </ul>
                     </div>
                 </div>
-         
-
             </div>
         </div>
     )
