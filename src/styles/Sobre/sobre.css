@@ -1,0 +1,91 @@
+.sobre-container{
+    display: flex;
+    background-image: url("../../assets/images/sobre/background-sobre.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+
+
+    & .nav-bar{
+        padding: 0px 32px;
+    }
+
+
+    & .container-low{
+        display: grid;
+        place-items: center;
+        width: 100%;
+        height: 100%;
+
+        & .container-conteudo{
+            display: grid;
+            width: 100vw;
+            height: 500px;
+            background-color: #516341;
+            opacity: 88%;
+            grid-template-columns: 1fr 1fr;
+
+            & .texto-container{
+                display: grid;
+                width: 100%;
+                height: 100%;
+               justify-content: start;
+               align-items: center;
+
+               & .texto-conteudo{
+                display: grid;
+                width: 550px;
+                font-size: 26px;
+                text-align: center;
+               }
+            }
+
+            & .foto-container{
+                display: grid;
+                width: 100%;
+                height: 100%;
+               justify-content: center;
+               align-items: center;
+               position: relative;
+               
+               & .detalhe-box{
+                display: grid;
+                background-color: #D38248;
+                opacity: 59%;
+                width: 500px;
+                height: 300px;
+                border-radius: 30px;
+               }
+               & .foto-1{
+                display: grid;
+                justify-self: center;
+                position: absolute;
+                background-image: url(../../assets/images/sobre/foto-conteudo-sobre-1.png);
+                background-repeat: no-repeat; /* Evita repetição da imagem */
+                background-position: center; 
+                width: 300px;
+                top: 20px;
+                margin-right: 50px;
+                height: 360px;
+               }
+               & .foto-2{
+                display: grid;
+                position: absolute;
+                justify-self: end;
+                background-image: url(../../assets/images/sobre/foto-conteudo-sobre-2.png);
+                background-size: contain; /* Garante que a imagem não seja cortada */
+                background-repeat: no-repeat; /* Evita repetição da imagem */
+                background-position: center; 
+                background-size: cover;
+                height: 380px;
+                width: 270px;
+                bottom: -70px;
+                right: 100px;
+               }
+            }
+        }
+    }
+}
