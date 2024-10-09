@@ -28,20 +28,28 @@
     align-items: center;
     padding-bottom: 20px;
     position: relative;
+    border: 2px solid red;
+    /* overflow: hidden; */
 }
 
 .flower-icon {
-    position: absolute;
-    margin-top: 48px;
-    top: 0;
+    /* position: absolute; */
+    max-height: fit-content;
+    /* height: 20%; */
+    /* max-width: 20%; */
+    /* margin-top: 5%; */
+    max-width: fit-content;
 
 }
 
 .login-name {
-    margin-top: 140px;
+    /* margin-top: 140px; */
     color: #DAC47C;
     font-size: 48px;
+    max-block-size: 5%;
+
 }
+
 
 .input-container {
     width: 100%;
@@ -76,19 +84,6 @@
     position: absolute; 
     height: 25px;
     left: 2%;
-}
-
-
-@media (max-width: 720px) {
-    .login-content {
-        height: 70%;
-        width: 80%;
-    }
-
-    .email-icon, .password-icons {
-        height: 25px;
-    }
-    
 }
 
 .register-text-container {
@@ -138,4 +133,55 @@
     justify-content: center;
     width: 100%;
     gap: 25px;
+    
+}
+
+@media (max-height: 760px) {
+    .login-name {
+        font-size: 30px;
+        margin-top: -1%;
+    }
+
+    .flower-icon {
+        height: 15%;
+        margin-top: 5%;
+        margin-bottom: 2%;
+
+    }
+
+    .enterButton {
+        height: 40px;
+        width: 150px;
+        font-size: 16px;
+    }
+
+    .register-text {
+        margin-top: -1%;
+        max-height: 100%;
+        font-size: 14px;
+    }
+
+    .input-style {
+        height: 50px;
+        width: 70%
+    }
+
+    .email-icon, .password-icons {
+        position: absolute; 
+        height: 25px;
+        left: 17%;
+    }
+    
+}
+
+@media (max-width: 720px) {
+    .login-content {
+        height: 70%;
+        width: 80%;
+    }
+
+    .email-icon, .password-icons {
+        height: 25px;
+    }
+    
 }
