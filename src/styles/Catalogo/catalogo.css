@@ -38,9 +38,27 @@
     text-align: center;
 }
 .corpo {
+    display: grid;
+    place-items: center;
     background-color: #516341;
     opacity: 90%;
     min-height: 30vh;
     border-radius: 10px;
     margin: 20px;
+    padding: 0px;
+}
+
+.catalogo-card {
+    font-size: 14px;
+    color: black;
+    background-color: #D9D9D9;
+    opacity: 90%;
+    height: 90%;
+    width: 90%;
+    border-radius: 10px;
+    display: grid;
+    padding: 30px;
+    gap: 10px;
+    margin: 20px;
+
 }

@@ -1,20 +1,5 @@
 import "../../styles/Catalogo/catalogo.css"
 import NavBar from "../../components/Navbar/Navbar";
-import "swiper/css";
-import "swiper/css/effect-coverflow";
-import "swiper/css/pagination";
-import "swiper/css/navigation";
-import "swiper/css/autoplay";
-import "swiper/css/effect-coverflow";
-import { Swiper, SwiperSlide } from "swiper/react";
-import {
-    EffectCoverflow,
-    Pagination,
-    Navigation,
-    Autoplay,
-} from "swiper/modules";
-import {Link} from 'react-router-dom';
-
 
 function Catalogo() {
     return (
@@ -26,7 +11,7 @@ function Catalogo() {
             <div className="catalogo-content">
                 <div className="card">
                     <div className="titulo">
-                        <h3>Triticum aestivum (Trigo Resiliente)</h3>
+                        <h2>Triticum aestivum (Trigo Resiliente)</h2>
                     </div>
                     <div className="corpo">
                         <ul className="catalogo-card">
@@ -41,7 +26,7 @@ function Catalogo() {
                 </div>
                 <div className="card">
                     <div className="titulo">
-                        <h3>Oryza sativa (Arroz Tolerante à Salinidade)</h3>
+                        <h2>Oryza sativa (Arroz Tolerante à Salinidade)</h2>
                     </div>
                     <div className="corpo">
                         <ul className="catalogo-card">
@@ -56,16 +41,16 @@ function Catalogo() {
                 </div>
                 <div className="card">
                     <div className="titulo">
-                        <h3>Zea mays (Milho Tolerante ao Frio)</h3>
+                        <h2>Zea mays (Milho Tolerante ao Frio)</h2>
                     </div>
                     <div className="corpo">
-                        <ul lassName="catalogo-card">
+                        <ul className="catalogo-card">
                             <li>Fenótipo: Estatura baixa, folhas largas e resistentes a geadas leves.</li>
                             <li>Local: Altiplano Andino, Bolívia.</li>
                             <li>Temperatura média: 12°C</li>
                             <li>Solo: Solo argiloso, rico em minerais.</li>
                             <li>Clima: Frio e seco, com grande variação de temperatura entre o dia e a noite.</li>
-                            <li>Observações: Esta variedade de milho é adaptada a climas frios e pode sobreviver a geadas noturnas leves. Seu ciclo de crescimento é mais longo devido às temperaturas baixas, mas é ideal para regiões montanhosas.</li>
+                            <li>Observações: Esta variedade de milho é adaptada a climas frios e pode sobreviver a geadas noturnas leves. Seu ciclo de crescimento é mais longo devido às temperaturas baixas, mas é ideal para regiões montanhosas.</li>
                         </ul>
                     </div>
                 </div>
