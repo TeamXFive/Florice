@@ -28,26 +28,20 @@
     align-items: center;
     padding-bottom: 20px;
     position: relative;
-    border: 2px solid red;
-    /* overflow: hidden; */
 }
 
 .flower-icon {
-    /* position: absolute; */
+    margin-top: 2%;
     max-height: fit-content;
-    /* height: 20%; */
-    /* max-width: 20%; */
-    /* margin-top: 5%; */
     max-width: fit-content;
 
 }
 
 .login-name {
-    /* margin-top: 140px; */
+    margin-top: 2%;
     color: #DAC47C;
     font-size: 48px;
     max-block-size: 5%;
-
 }
 
 
