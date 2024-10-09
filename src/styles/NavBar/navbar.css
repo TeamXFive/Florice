@@ -17,7 +17,6 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        border: 2px solid green;
 
         .florice-name {
             height: 100%;
@@ -39,8 +38,6 @@
 
         .ulPages {
             max-width: 100%;
-            display: flex;
-            justify-content: center;
             margin: 0;
         }
 
@@ -74,6 +71,7 @@
         margin: 0;
         margin-right: 10%;
         padding: 0;
+        flex-wrap: wrap;
     }
 
     .ulPages li {
