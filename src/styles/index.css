@@ -3,3 +3,17 @@
 html {
   box-sizing: border-box;
 }
+
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent; /* ou o fundo desejado */
+}
+
+/* Firefox */
+body {
+  scrollbar-width: none; /* Remove a barra no Firefox */
+}
+
+body::-webkit-scrollbar {
+  display: none; /* Remove no Chrome/Safari */
+}
