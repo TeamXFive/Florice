@@ -51,9 +51,9 @@ function Login() {
                     </div>
 
                     <div className="socialMediasIcon">
-                        <img src="src\assets\images\Login\linkedin.png" alt="" />
-                        <img src="src\assets\images\Login\facebook.png" alt="" />
-                        <img src="src\assets\images\Login\google.png" alt="" />
+                        <img className="socialMediaImg" src="src\assets\images\Login\linkedin.png" alt="" />
+                        <img className="socialMediaImg" src="src\assets\images\Login\facebook.png" alt="" />
+                        <img className="socialMediaImg" src="src\assets\images\Login\google.png" alt="" />
                     </div>
 
             </div>
