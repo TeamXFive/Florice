@@ -25,7 +25,7 @@ function Home() {
                     <p>
                         O Florice conecta bancos de germoplasmas, pesquisadores,
                         agricultores e produtores rurais para garantir que a
-                        diversidade gênica chegue na sociedade.
+                        diversidade genética chegue na sociedade.
                     </p>
                 </div>
             </div>
