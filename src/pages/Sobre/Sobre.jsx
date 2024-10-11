@@ -1,12 +1,8 @@
 import "../../styles/Sobre/sobre.css";
-import NavBar from "../../components/Navbar/Navbar";
 
 function Sobre() {
     return (
         <div className="sobre-container">
-            <div className="nav-bar">
-                <NavBar />
-            </div>
             <section className="container-low">
                 <div className="container-conteudo">
                     <div className="foto-container">

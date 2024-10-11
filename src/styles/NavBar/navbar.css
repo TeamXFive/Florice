@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Andada+Pro:ital,wght@0,400..840;1,400..840&display=swap");
 
 .mainNavBar {
+    position: absolute;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -11,6 +12,9 @@
     margin-top: 1.5%;
     padding-bottom: 10px;
     box-sizing: border-box;
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+    width: calc(100% - 3rem);
 
     &.home {
         flex-direction: column;
@@ -74,11 +78,36 @@
     }
 
     .ulPages li {
+        position: relative;
         padding: 5px;
         font-weight: 0;
 
         &:not(:last-of-type) {
             margin-right: 1.5rem;
+        }
+
+        &:hover::after {
+            content: "";
+            border-bottom: 1px solid white;
+            width: 5px;
+            display: block;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 2px;
+        }
+
+        & .menu-border {
+            animation-name: menu-border-inactive;
+            animation-duration: 0.15s;
+            animation-timing-function: ease-in-out;
+            animation-fill-mode: forwards;
+
+            &.active {
+                animation-name: menu-border-active;
+                /* animation-direction: normal;
+                animation-play-state: running; */
+            }
         }
     }
 
@@ -118,6 +147,24 @@
 
     .menu-button {
         display: none;
+    }
+}
+
+@keyframes menu-border-active {
+    0% {
+        transform: scaleX(0);
+    }
+    100% {
+        transform: scaleX(1);
+    }
+}
+
+@keyframes menu-border-inactive {
+    0% {
+        transform: scaleX(1);
+    }
+    100% {
+        transform: scaleX(0);
     }
 }
 

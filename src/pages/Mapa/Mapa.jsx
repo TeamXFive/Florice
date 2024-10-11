@@ -1,13 +1,8 @@
-import NavBar from "../../components/Navbar/Navbar";
 import "../../styles/Mapa/Mapa.css";
 
 function Mapa() {
     return (
         <article className="mapa-container">
-            <section className="mapa-navbar">
-                <NavBar />
-            </section>
-
             <section className="looker-container">
                 <iframe
                     className="embed-iframe"
