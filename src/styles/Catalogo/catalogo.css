@@ -6,7 +6,8 @@
     flex-direction: column;
     align-items: center;
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
+    height: auto;
 }
 
 .nav-bar {
@@ -25,7 +26,7 @@
     padding: 100px;
     justify-content: space-between;
     width: 100%;
-    height: 100%;
+    height: auto;
     place-items: center;
 }
 .card {
@@ -36,7 +37,7 @@
     width: 33%;
 }
 .titulo {
-    background-color: #8E8645;
+    background-color: #8e8645;
     opacity: 90%;
     border-radius: 10px;
     font-size: 10px;
@@ -57,7 +58,7 @@
 .catalogo-card {
     font-size: 14px;
     color: black;
-    background-color: #D9D9D9;
+    background-color: #d9d9d9;
     opacity: 90%;
     height: 90%;
     width: 90%;
@@ -66,7 +67,6 @@
     padding: 30px;
     gap: 10px;
     margin: 20px;
-
 }
 @media screen and (max-width: 768px) {
     .catalogo-content {
@@ -78,7 +78,8 @@
         width: 100%;
         margin-bottom: 20px;
     }
-    .titulo, .corpo {
+    .titulo,
+    .corpo {
         margin: 10px;
     }
     .catalogo-card {

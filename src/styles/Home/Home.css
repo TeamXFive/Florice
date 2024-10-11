@@ -2,6 +2,13 @@
     width: 100%;
 }
 
+.homeBorder {
+    margin-top: 40px;
+    border-bottom: 1px solid white;
+    position: absolute;
+    width: 100px;
+}
+
 .home-container {
     display: flex;
     background-image: url("../../assets/images/background/background-home3.jpg");

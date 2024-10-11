@@ -51,37 +51,56 @@ export default function NavBar() {
                     </li>
                 )}
                 <li>
-                    <div className={!isHomePage ? "headerBorder" : ""}></div>
+                    <div className={!isHomePage ? "headerBorder active" : ""} />
                 </li>
                 <li>
                     <Link className="linkItems" to="/">
                         home
+                        <div
+                            className={`menu-border homeBorder ${
+                                isHomePage ? "active" : ""
+                            }`}
+                        />
                     </Link>
                 </li>
                 <li>
                     <Link className="linkItems" to="/sobre">
                         sobre
-                        <div className={isSobrePage ? "sobreBorder" : ""}></div>
+                        <div
+                            className={`menu-border sobreBorder ${
+                                isSobrePage ? "active" : ""
+                            }`}
+                        ></div>
                     </Link>
                 </li>
                 <li>
                     <Link className="linkItems" to="/catalogo">
                         catálogo
                         <div
-                            className={isCatalogoPage ? "catalogoBorder" : ""}
+                            className={`menu-border catalogoBorder ${
+                                isCatalogoPage ? "active" : ""
+                            }`}
                         ></div>
                     </Link>
                 </li>
                 <li>
                     <Link className="linkItems" to="/mapa">
                         mapa
-                        <div className={isMapaPage ? "mapaBorder" : ""}></div>
+                        <div
+                            className={`menu-border mapaBorder ${
+                                isMapaPage ? "active" : ""
+                            }`}
+                        ></div>
                     </Link>
                 </li>
                 <li>
                     <Link className="linkItems" to="/login">
                         <div>login</div>
-                        <div className={isLoginPage ? "loginBorder" : ""}></div>
+                        <div
+                            className={`menu-border loginBorder ${
+                                isLoginPage ? "active" : ""
+                            }`}
+                        ></div>
                     </Link>
                 </li>
             </ul>

@@ -11,7 +11,7 @@ import SignUp from "./pages/SignUp/Signup";
 function App() {
     return (
         <div className="container-app">
-            {/* <NavBar /> */}
+            <NavBar />
 
             <main>
                 <Routes>
@@ -23,9 +23,6 @@ function App() {
                     <Route path="/signup" element={<SignUp />} />
                 </Routes>
             </main>
-
-            <footer>
-            </footer>
         </div>
     );
 }

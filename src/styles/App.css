@@ -42,3 +42,12 @@ body {
     align-items: center;
     padding: 0px 32px;
 } */
+
+main {
+    & > [class$="-container"] {
+        padding-top: 92px;
+    }
+    & > .home-container {
+        padding-top: 260px;
+    }
+}
