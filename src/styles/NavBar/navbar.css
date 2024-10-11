@@ -121,7 +121,7 @@
     }
 }
 
-@media (max-width: 576px) {
+@media (max-width: 900px) {
     .mainNavBar {
         margin: 8px;
         box-sizing: border-box;

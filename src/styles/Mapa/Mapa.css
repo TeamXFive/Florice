@@ -18,25 +18,25 @@
 
 .looker-container {
     margin: auto;
-    max-height: calc(0.7 * ((100vw * 0.8) * 9/16));
+    max-height: calc(0.7 * ((100vw * 0.8) * 9 / 16));
     height: 70%;
     max-width: 1200px;
     width: 80%;
-    background-color: #4c5d3aad;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding-bottom: 20px;
     position: relative;
 }
 
 .embed-iframe {
+    background-color: #4c5d3aad;
     width: 100%;
     aspect-ratio: 16/9;
     max-height: inherit;
+    overflow: hidden;
+    border-radius: 8px;
 }
-
 
 .mapa-navbar {
     width: 100%;
