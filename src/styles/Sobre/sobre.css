@@ -13,7 +13,7 @@
         padding: 0px 32px;
     }
 
-
+    
     & .container-low{
         display: grid;
         place-items: center;
@@ -22,6 +22,7 @@
 
         & .container-conteudo{
             display: grid;
+            justify-content: center;
             width: 100vw;
             height: 500px;
             background-color: #516341;
@@ -41,6 +42,33 @@
                 font-size: 26px;
                 text-align: center;
                }
+               @media (max-width: 1100px){
+
+
+                 .texto-conteudo{
+                    margin-left: 40px;
+                    font-size: 24px;
+                    width: 400px;
+                }
+                }
+                @media (max-width: 875px){
+                    .sobre-containe{
+                        overflow: hidden;
+                    }
+                    .texto-conteudo{
+                        margin-left: 15px;
+                        font-size: 22px;
+                        width: 350px;
+                    }
+                }
+                @media (max-width: 700px){
+                    .texto-conteudo{
+                        justify-content: center;
+                        height: 100%;
+                        width: 100%;
+                    }
+                }
+                
             }
 
             & .foto-container{
@@ -53,6 +81,7 @@
                
                & .detalhe-box{
                 display: grid;
+                justify-content: center;
                 background-color: #D38248;
                 opacity: 59%;
                 width: 500px;
@@ -85,7 +114,59 @@
                 bottom: -70px;
                 right: 100px;
                }
+               @media (max-width: 1100px){
+                .detalhe-box{
+                    width: 450px;
+                }
+                .foto-1{
+                    width: 280px;
+                    height: 340px;
+                }
+                .foto-2{
+                    height: 360px;
+                    width: 250px;
+                }
+                }
+                @media (max-width: 950px){
+                    .detalhe-box{
+                        width: 400px;
+                        display: none;
+                    }
+                    .foto-1{
+                       display: none;
+                    }
+                    .foto-2{
+                        display: grid;
+                        justify-content: center;
+                        height: 450px;
+                        width: 330px;
+                        position: initial;
+                    }
+                }
+                @media (max-width: 875px){
+                    .texto-conteudo{
+                        font-size: 24px;
+                        width: 350px;
+                    }
+                }
+                @media (max-width: 700px){
+                    .foto-2{
+                        display: none;
+                    }
+                }
             }
         }
+        @media (max-width: 700px){
+            .container-conteudo{
+
+                grid-template-columns: 1fr;     
+            }
+         }
     }
 }
+
+@media (max-width: 875px){
+        .sobre-container{
+            overflow: hidden;
+        }
+    }
