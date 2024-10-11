@@ -10,6 +10,11 @@
     overflow: auto;
 }
 
+.nav-bar {
+    width: 100%;
+    padding: 0px 32px;
+}
+
 .loginBorder {
     margin-top: 40px;
     border-bottom: 1px solid white;
