@@ -36,3 +36,9 @@
     aspect-ratio: 16/9;
     max-height: inherit;
 }
+
+
+.mapa-navbar {
+    width: 100%;
+    padding: 0px 32px;
+}
