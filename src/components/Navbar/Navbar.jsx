@@ -15,7 +15,9 @@ export default function NavBar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     useEffect(() => {
-        menuRef.current?.focus();
+        if (window.innerWidth <= 768 && isMenuOpen) {
+            menuRef.current?.focus();
+        }
     }, [isMenuOpen]);
 
     return (
