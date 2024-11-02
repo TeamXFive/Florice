@@ -1,18 +1,15 @@
 import json
 import oracledb
-from dotenv import load_dotenv
 import os
 from http.server import BaseHTTPRequestHandler
 from urllib.parse import parse_qs
 from .convert_datetimes import convert_datetimes
 
-load_dotenv()
-
 # Create a DSN string for the TLS connection
 dsn = f"""
 (DESCRIPTION=
-    (ADDRESS=(PROTOCOL=tcps)(HOST={os.getenv('DB_HOST')})(PORT={os.getenv('DB_PORT')}))
-    (CONNECT_DATA=(SERVICE_NAME={os.getenv('DB_SERVICE_NAME')}))
+    (ADDRESS=(PROTOCOL=tcps)(HOST={os.environ.get('DB_HOST')})(PORT={os.environ.get('DB_PORT')}))
+    (CONNECT_DATA=(SERVICE_NAME={os.environ.get('DB_SERVICE_NAME')}))
     (SECURITY=(ssl_server_dn_match=yes))
 )
 """
@@ -20,8 +17,8 @@ dsn = f"""
 def db(self):
     try:
         connection = oracledb.connect(
-            user=os.getenv('DB_USERNAME'),
-            password=os.getenv('DB_PASSWORD'),
+            user=os.environ.get('DB_USERNAME'),
+            password=os.environ.get('DB_PASSWORD'),
             dsn=dsn
             )
         print("Connection successful!")
