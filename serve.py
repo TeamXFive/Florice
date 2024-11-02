@@ -22,6 +22,8 @@ class ApiRedirectHandler(BaseHTTPRequestHandler):
     def handle_request(self, method):
         # Extract the path, removing leading "/api/"
         path = self.path.replace('/api/', '')
+    
+        path = path[0:path.find('?')]
 
         # Determine the base module name
         if not path:
