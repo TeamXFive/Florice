@@ -35,6 +35,11 @@ def db(self):
         response = {"error": str(error)}
         self.wfile.write(json.dumps(response).encode("utf-8"))
 
+def sendCors(self):    
+    allowed_origins = {"http://localhost:5173", "https://florice-blue.vercel.app"}
+    origin = self.headers.get("Origin")
+    if origin in allowed_origins:
+        self.send_header("Access-Control-Allow-Origin", origin)
 
 def get(self, table):
     try:
@@ -51,12 +56,14 @@ def get(self, table):
 
         self.send_response(200)
         self.send_header("Content-Type", "application/json")
+        sendCors(self)
         self.end_headers()
         self.wfile.write(json_data.encode('utf-8'))
     except oracledb.DatabaseError as e:
         error, = e.args
         self.send_response(500)
         self.send_header("Content-Type", "application/json")
+        sendCors(self)
         self.end_headers()
         response = {"error": str(error)}
         self.wfile.write(json.dumps(response).encode("utf-8"))
@@ -105,12 +112,14 @@ def post(self, table):
 
         self.send_response(200)
         self.send_header("Content-Type", "application/json")
+        sendCors(self)
         self.end_headers()
         self.wfile.write(json_data.encode('utf-8'))
     except oracledb.DatabaseError as e:
         error, = e.args
         self.send_response(500)
         self.send_header("Content-Type", "application/json")
+        sendCors(self)
         self.end_headers()
         response = {"error": str(error)}
         self.wfile.write(json.dumps(response).encode("utf-8"))
@@ -150,12 +159,14 @@ def put(self, table):
 
         self.send_response(200)
         self.send_header("Content-Type", "application/json")
+        sendCors(self)
         self.end_headers()
         self.wfile.write(json_data.encode('utf-8'))
     except oracledb.DatabaseError as e:
         error, = e.args
         self.send_response(500)
         self.send_header("Content-Type", "application/json")
+        sendCors(self)
         self.end_headers()
         response = {"error": str(error)}
         self.wfile.write(json.dumps(response).encode("utf-8"))
@@ -178,12 +189,14 @@ def delete(self, table):
         cursor.execute("COMMIT")
         
         self.send_response(200)
-        self.end_headers()
-        self.wfile.write("Deleted".encode('utf-8'))
+        sendCors(self)
+        response = {"message": "Deleted"}
+        self.wfile.write(json.dumps(response).encode("utf-8"))
     except oracledb.DatabaseError as e:
         error, = e.args
         self.send_response(500)
         self.send_header("Content-Type", "application/json")
+        sendCors(self)
         self.end_headers()
         response = {"error": str(error)}
         self.wfile.write(json.dumps(response).encode("utf-8"))
