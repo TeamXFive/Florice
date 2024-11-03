@@ -1,13 +1,14 @@
 .catalogo-container {
     background-image: url("../../assets/images/background/background-all.png");
-    display: flex;
     background-size: cover;
     background-repeat: no-repeat;
-    flex-direction: column;
-    align-items: center;
     width: 100%;
     min-height: 100vh;
     height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid blue;
 }
 
 .nav-bar {
@@ -21,53 +22,27 @@
     position: absolute;
     width: 120px;
 }
+
 .catalogo-content {
-    display: flex;
-    padding: 100px;
-    justify-content: space-between;
+    height: 80vh;
     width: 100%;
-    height: auto;
-    place-items: center;
-}
-.card {
+    margin: 0;
     display: flex;
-    flex-direction: column;
-    height: 100%;
-    max-height: 400vh;
-    width: 33%;
-}
-.titulo {
-    background-color: #8e8645;
-    opacity: 90%;
-    border-radius: 10px;
-    font-size: 10px;
-    margin: 20px;
-    text-align: center;
-}
-.corpo {
-    display: grid;
-    place-items: center;
-    background-color: #516341;
-    opacity: 90%;
-    min-height: 30vh;
-    border-radius: 10px;
-    margin: 20px;
-    padding: 0px;
+    border: 1px solid red;
+    gap: 30px;
 }
 
-.catalogo-card {
-    font-size: 14px;
-    color: black;
-    background-color: #d9d9d9;
-    opacity: 90%;
-    height: 90%;
-    width: 90%;
-    border-radius: 10px;
-    display: grid;
-    padding: 30px;
-    gap: 10px;
-    margin: 20px;
+.search-container {
+    flex: 1;
 }
+
+.catalog-table {
+    flex: 2;
+    width: 100%;
+    border: 1px solid green;
+    /* margin-left: 10%; */
+}
+
 @media screen and (max-width: 768px) {
     .catalogo-content {
         flex-direction: column;
