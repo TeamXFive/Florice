@@ -1,6 +1,5 @@
-
 table {
-    border-collapse: separate;
+    border-collapse: collapse;
     border-spacing: 0 10px;
     background-color: #161E18;
     border-radius: 10px;
@@ -22,10 +21,10 @@ tbody tr {
 tbody tr td {
     padding: 15px;
 }
-
+/* 
 tbody tr td:first-child,
 tbody tr td:last-child {
-}
+} */
 
 button {
     background: transparent;

@@ -5,6 +5,7 @@ const CatalogTable = () => {
     const [expandedRow, setExpandedRow] = useState(null);
 
     const toggleExpand = (index) => {
+        console.log(`esse é o index: ${index}`)
         setExpandedRow(expandedRow === index ? null : index);
     };
 
@@ -35,11 +36,11 @@ const CatalogTable = () => {
             clima: 'Semiárido, baixa pluviosidade',
             detalhes: null,
         },
-        // Repita para os outros itens como necessário
     ];
 
     return (
-        <table style={{ width: '100%', borderCollapse: 'collapse' }}>
+        <div className="table-container">
+        <table>
             <thead>
             <tr>
                 <th>Espécie</th>
@@ -72,6 +73,7 @@ const CatalogTable = () => {
             ))}
             </tbody>
         </table>
+        </div>
     );
 };
 

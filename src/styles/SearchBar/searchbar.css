@@ -1,0 +1,31 @@
+/* 353 832  */
+
+.search-content {
+    max-width: 400px;
+    min-height: 100%;
+    background-color: #161E18;
+    margin-left: 1.5rem;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+.input-container {
+    position: relative;
+    display: inline-block;
+}
+
+.input-search {
+    min-height: 40px;
+    min-width: 200px;
+    background-color: #b3b3b3;
+    margin-top: 4%;
+    padding-left: 40px;
+}
+
+.search-image {
+    position: absolute;
+    bottom: 0;
+}
