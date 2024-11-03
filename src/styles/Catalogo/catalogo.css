@@ -22,9 +22,9 @@
     width: 120px;
 }
 .catalogo-content {
-    display: flex;
+    /*display: flex;*/
     padding: 100px;
-    justify-content: space-between;
+    /*justify-content: space-between;*/
     width: 100%;
     height: auto;
     place-items: center;

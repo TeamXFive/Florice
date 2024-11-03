@@ -1,10 +1,14 @@
 import "../../styles/Catalogo/catalogo.css";
+import Table from "../../components/CatalogTable/CatalogTable.jsx";
 
 function Catalogo() {
     return (
         <div className="catalogo-container">
             <div className="catalogo-content">
-                <div className="card">
+                <div className="catalog-table">
+                    <Table/>
+                </div>
+                {/*<div className="card">
                     <div className="titulo">
                         <h2>Triticum aestivum (Trigo Resiliente)</h2>
                     </div>
@@ -84,9 +88,10 @@ function Catalogo() {
                             </li>
                         </ul>
                     </div>
-                </div>
+                </div>*/}
             </div>
         </div>
+
     );
 }
 
