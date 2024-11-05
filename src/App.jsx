@@ -8,15 +8,11 @@ import { Mapa } from "./pages/Mapa/Mapa";
 import Login from "./pages/Login/Login";
 import SignUp from "./pages/SignUp/Signup";
 import { Dashboard } from "./pages/Dashboard/Dashboard";
-import { useLocation } from "react-router-dom";
-import { DashboardPlaces } from "./pages/Dashboard/DashboardPlaces";
 
 function App() {
-    const location = useLocation();
-
     return (
         <div className="container-app">
-            {!location.pathname.startsWith("/dashboard") && <NavBar />}
+            <NavBar />
 
             <main>
                 <Routes>
@@ -28,7 +24,6 @@ function App() {
                     <Route path="/signup" element={<SignUp />} />
                     {/* TODO - Put behind auth wall */}
                     <Route path="/dashboard/:type" element={<Dashboard />} />
-                    <Route path="/dash/places" element={<DashboardPlaces />} />
                 </Routes>
             </main>
         </div>
