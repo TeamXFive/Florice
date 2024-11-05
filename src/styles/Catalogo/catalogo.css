@@ -8,7 +8,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid blue;
 }
 
 .nav-bar {
@@ -28,7 +27,6 @@
     width: 100%;
     margin: 0;
     display: flex;
-    border: 1px solid red;
     gap: 30px;
 }
 
@@ -39,8 +37,6 @@
 .catalog-table {
     flex: 2;
     width: 100%;
-    border: 1px solid green;
-    /* margin-left: 10%; */
 }
 
 @media screen and (max-width: 768px) {
