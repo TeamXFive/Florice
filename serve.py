@@ -7,6 +7,21 @@ import sys
 load_dotenv()
 
 class ApiRedirectHandler(BaseHTTPRequestHandler):
+    allowed_origins = {"http://localhost:5173", "https://florice-blue.vercel.app"}
+
+
+    def set_cors_headers(self):
+        origin = self.headers.get("Origin")
+        if origin in self.allowed_origins:
+            self.send_header("Access-Control-Allow-Origin", origin)
+            self.send_header("Access-Control-Allow-Methods", "POST, GET, PUT, DELETE, OPTIONS")
+            self.send_header("Access-Control-Allow-Headers", "Content-Type")
+
+    def do_OPTIONS(self):
+        self.send_response(200)
+        self.set_cors_headers()
+        self.end_headers()  # Finalize OPTIONS response headers
+
     def do_GET(self):
         self.handle_request('do_GET')
 
