@@ -192,7 +192,7 @@ def delete(self, table):
         self.send_header("Content-Type", "application/json")
         sendCors(self)
         self.end_headers()
-        response = {"error": "Deleted"}
+        response = {"message": "Deleted"}
         self.wfile.write(json.dumps(response).encode("utf-8"))
     except oracledb.DatabaseError as e:
         error, = e.args
