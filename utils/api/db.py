@@ -46,7 +46,7 @@ def get(self, table):
         connection, cursor = db(self)
         cursor = connection.cursor()
 
-        cursor.execute(f"SELECT * FROM {table}")
+        cursor.execute(f"SELECT * FROM {table} ORDER BY id ASC")
         raw_data = cursor.fetchall() 
 
         columns = [col[0] for col in cursor.description]
@@ -58,7 +58,7 @@ def get(self, table):
         self.send_header("Content-Type", "application/json")
         sendCors(self)
         self.end_headers()
-        self.wfile.write(json_data.encode('utf-8'))
+        self.wfile.write(json_data.lower().encode('utf-8'))
     except oracledb.DatabaseError as e:
         error, = e.args
         self.send_response(500)
@@ -114,7 +114,7 @@ def post(self, table):
         self.send_header("Content-Type", "application/json")
         sendCors(self)
         self.end_headers()
-        self.wfile.write(json_data.encode('utf-8'))
+        self.wfile.write(json_data.lower().encode('utf-8'))
     except oracledb.DatabaseError as e:
         error, = e.args
         self.send_response(500)
@@ -161,7 +161,7 @@ def put(self, table):
         self.send_header("Content-Type", "application/json")
         sendCors(self)
         self.end_headers()
-        self.wfile.write(json_data.encode('utf-8'))
+        self.wfile.write(json_data.lower().encode('utf-8'))
     except oracledb.DatabaseError as e:
         error, = e.args
         self.send_response(500)
@@ -189,8 +189,10 @@ def delete(self, table):
         cursor.execute("COMMIT")
         
         self.send_response(200)
+        self.send_header("Content-Type", "application/json")
         sendCors(self)
-        response = {"message": "Deleted"}
+        self.end_headers()
+        response = {"error": "Deleted"}
         self.wfile.write(json.dumps(response).encode("utf-8"))
     except oracledb.DatabaseError as e:
         error, = e.args
