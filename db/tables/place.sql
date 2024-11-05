@@ -1,3 +1,4 @@
+START TRANSACTION;
 create table place (
    id           number
       generated always as identity
@@ -24,3 +25,4 @@ create table place (
                               'company',
                               'other' ) )
 );
+commit;
