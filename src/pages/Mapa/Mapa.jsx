@@ -20,15 +20,15 @@ export const Mapa = () => {
 
     useEffect(() => {
         const placesWithCoordinates = places.filter(
-            (place) => place.LATITUDE && place.LONGITUDE
+            (place) => place.latitude && place.longitude,
         );
 
         if (placesWithCoordinates.length > 0 && mapRef.current) {
             mapRef.current.fitBounds(
                 placesWithCoordinates.map((place) => [
-                    place.LATITUDE,
-                    place.LONGITUDE,
-                ])
+                    place.latitude,
+                    place.longitude,
+                ]),
             );
         }
     }, [places]);
@@ -51,15 +51,15 @@ export const Mapa = () => {
                 />
                 {places.map(
                     (place) =>
-                        place.LATITUDE &&
-                        place.LONGITUDE && (
+                        place.latitude &&
+                        place.longitude && (
                             <Marker
                                 key={place.ID}
-                                position={[place.LATITUDE, place.LONGITUDE]}
+                                position={[place.latitude, place.longitude]}
                             >
                                 <Popup>{place.DISPLAY_NAME}</Popup>
                             </Marker>
-                        )
+                        ),
                 )}
             </MapContainer>
         </article>
