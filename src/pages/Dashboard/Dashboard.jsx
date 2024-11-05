@@ -15,17 +15,17 @@ export const Dashboard = () => {
                         <button
                             onClick={() => navigate("/dashboard/catalogue")}
                         >
-                            Catalogue
+                            Catalogo
                         </button>
                     </li>
                     <li>
                         <button onClick={() => navigate("/dashboard/places")}>
-                            Places
+                            Mapa
                         </button>
                     </li>
                     <li>
                         <button onClick={() => navigate("/dashboard/users")}>
-                            Users
+                            Usuários
                         </button>
                     </li>
                 </ul>
@@ -34,7 +34,7 @@ export const Dashboard = () => {
             {params.type === "catalogue" && (
                 <div className="catalogue">
                     <div className="content section">
-                        <h1>Catalogue</h1>
+                        <h1>Catalogo</h1>
                     </div>
                 </div>
             )}
@@ -44,7 +44,7 @@ export const Dashboard = () => {
             {params.type === "users" && (
                 <div className="users">
                     <div className="content section">
-                        <h1>Users</h1>
+                        <h1>Usuários</h1>
                     </div>
                 </div>
             )}

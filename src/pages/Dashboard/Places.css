@@ -1,0 +1,7 @@
+.dashboard-container .places {
+    & .modal,
+    & .modal-dialog {
+        color: black;
+        background: rgba(0, 0, 0, 0.35);
+    }
+}
