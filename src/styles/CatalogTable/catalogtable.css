@@ -5,6 +5,7 @@ table {
     border-radius: 10px;
     opacity: 70%;
     color: black;
+    overflow: scroll;
 }
 
 thead th {
