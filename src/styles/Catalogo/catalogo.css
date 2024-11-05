@@ -7,7 +7,6 @@
     height: auto;
     display: flex;
     align-items: center;
-    justify-content: center;
 }
 
 .nav-bar {
@@ -25,36 +24,19 @@
 .catalogo-content {
     height: 80vh;
     width: 100%;
-    margin: 0;
     display: flex;
+    justify-content: center;
     gap: 30px;
 }
 
-.search-container {
+/* .search-container {
     flex: 1;
-}
+} */
 
 .catalog-table {
     flex: 2;
     width: 100%;
-}
-
-@media screen and (max-width: 768px) {
-    .catalogo-content {
-        flex-direction: column;
-        padding: 20px;
-        align-items: center;
-    }
-    .card {
-        width: 100%;
-        margin-bottom: 20px;
-    }
-    .titulo,
-    .corpo {
-        margin: 10px;
-    }
-    .catalogo-card {
-        width: 90%;
-        margin: 10px auto;
-    }
+    justify-content: center;
+    align-items: center;
+    overflow: scroll;
 }

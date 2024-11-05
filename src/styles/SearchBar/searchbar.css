@@ -66,8 +66,8 @@
 
 .filter-content {
     font-size: 16px;
-    gap: 1px;
     margin-top: -10px;
+    gap: -20px;
     display: flex;
     flex-direction: column;
 }

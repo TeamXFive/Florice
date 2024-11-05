@@ -36,28 +36,31 @@ const CatalogTable = () => {
                 </thead>
                 <tbody>
                     {data.map((item, index) => (
-                        <React.Fragment key={index}>
-                            <tr>
-                                <td>{item.especie}</td>
-                                <td>{item.fenotipo}</td>
-                                <td>{item.clima}</td>
-                                <td>
-                                    <button onClick={() => toggleExpand(index)}>
-                                        {expandedRow === index ? '▲' : '▼'}
-                                    </button>
-                                </td>
-                            </tr>
-                            {expandedRow === index && (
-                                <tr>
-                                    <td colSpan="4" style={{ padding: '10px', backgroundColor: '#f9f9f9' }}>
+                        <tr key={index}>
+                            <td colSpan="4" className="expanded-cell">
+                                {/* Main Row */}
+                                <div style={{ display: 'flex', alignItems: 'center' }}>
+                                    <div style={{ flex: 1 }}>{item.especie}</div>
+                                    <div style={{ flex: 1 }}>{item.fenotipo}</div>
+                                    <div style={{ flex: 1 }}>{item.clima}</div>
+                                    <div>
+                                        <button onClick={() => toggleExpand(index)}>
+                                            {expandedRow === index ? '▲' : '▼'}
+                                        </button>
+                                    </div>
+                                </div>
+    
+                                {/* Expanded Row */}
+                                {expandedRow === index && (
+                                    <div className="expanded-details">
                                         <p><strong>Local:</strong> {item.local}</p>
                                         <p><strong>Temperatura média:</strong> {item.temperatura_media}°C</p>
                                         <p><strong>Solo:</strong> {item.solo}</p>
                                         <p><strong>Observações:</strong> {item.observacoes}</p>
-                                    </td>
-                                </tr>
-                            )}
-                        </React.Fragment>
+                                    </div>
+                                )}
+                            </td>
+                        </tr>
                     ))}
                 </tbody>
             </table>
