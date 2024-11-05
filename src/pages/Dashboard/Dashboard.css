@@ -1,0 +1,37 @@
+.dashboard-container {
+    display: flex;
+    flex-wrap: nowrap;
+
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+
+    .sidebar {
+        margin-right: 1.5rem;
+        flex: 0;
+    }
+
+    .sidebar,
+    .content {
+        background-color: #516341;
+        padding: 1rem;
+        border-radius: 1rem;
+        flex: 0 1 auto;
+
+        & .table-container {
+            width: auto;
+            max-width: 100%;
+            overflow: scroll;
+        }
+
+        & .table {
+            table-layout: fixed;
+        }
+    }
+
+    .places-container {
+        & .modal,
+        & .modal-dialog {
+            color: black;
+        }
+    }
+}

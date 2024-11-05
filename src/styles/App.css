@@ -45,7 +45,8 @@ body {
 
 main {
     & > [class$="-container"] {
-        padding-top: 92px;
+        /* Header height + heder top margin + container spacing */
+        padding-top: calc(92px + 1.25rem + 1.5rem);
     }
     & > .home-container {
         padding-top: 260px;

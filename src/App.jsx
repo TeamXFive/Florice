@@ -8,14 +8,11 @@ import { Mapa } from "./pages/Mapa/Mapa";
 import Login from "./pages/Login/Login";
 import SignUp from "./pages/SignUp/Signup";
 import { Dashboard } from "./pages/Dashboard/Dashboard";
-import { useLocation } from "react-router-dom";
 
 function App() {
-    const location = useLocation();
-
     return (
         <div className="container-app">
-            {!location.pathname.startsWith("/dashboard") && <NavBar />}
+            <NavBar />
 
             <main>
                 <Routes>
