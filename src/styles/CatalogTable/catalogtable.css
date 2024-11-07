@@ -2,15 +2,15 @@
     width: 100%;
     display: flex;
     justify-content: center;
+    overflow: scroll;
 }
 
 table {
     background-color: #161E18;
     width: 100%;
     border-radius: 10px;
-    opacity: 70%;
+    opacity: 90%;
     color: black;
-    overflow: scroll;
 }
 
 thead th {

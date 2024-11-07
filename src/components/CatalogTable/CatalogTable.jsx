@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import '../../styles/CatalogTable/catalogtable.css';
 
-const CatalogTable = () => {
+const CatalogTable = ({search}) => {
     const [data, setData] = useState([]);
     const [expandedRow, setExpandedRow] = useState(null);
 
@@ -24,47 +24,55 @@ const CatalogTable = () => {
     };
 
     return (
-        <div className="table-container">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Espécie</th>
-                        <th>Fenótipo</th>
-                        <th>Clima</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {data.map((item, index) => (
-                        <tr key={index}>
-                            <td colSpan="4" className="expanded-cell">
-                                {/* Main Row */}
-                                <div style={{ display: 'flex', alignItems: 'center' }}>
-                                    <div style={{ flex: 1 }}>{item.especie}</div>
-                                    <div style={{ flex: 1 }}>{item.fenotipo}</div>
-                                    <div style={{ flex: 1 }}>{item.clima}</div>
-                                    <div>
-                                        <button onClick={() => toggleExpand(index)}>
-                                            {expandedRow === index ? '▲' : '▼'}
-                                        </button>
-                                    </div>
-                                </div>
-    
-                                {/* Expanded Row */}
-                                {expandedRow === index && (
-                                    <div className="expanded-details">
-                                        <p><strong>Local:</strong> {item.local}</p>
-                                        <p><strong>Temperatura média:</strong> {item.temperatura_media}°C</p>
-                                        <p><strong>Solo:</strong> {item.solo}</p>
-                                        <p><strong>Observações:</strong> {item.observacoes}</p>
-                                    </div>
-                                )}
-                            </td>
+            
+            <div className="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th className="table-head">Espécie</th>
+                            <th className="table-head">Fenótipo</th>
+                            <th className="table-head">Clima</th>
+                            <th></th>
                         </tr>
-                    ))}
-                </tbody>
-            </table>
-        </div>
+                    </thead>
+                    <tbody>
+                        {data.filter((item) => {
+                            return search.toLowerCase() === '' 
+                            ? item : item.especie.toLowerCase().includes(search) ||
+                            item.fenotipo.toLowerCase().includes(search) ||
+                            item.clima.toLowerCase().includes(search) ||
+                            item.local.toLowerCase().includes(search) ||
+                            item.temperatura_media.toString().includes(search) ||
+                            item.solo.toLowerCase().includes(search)
+                        }).map((item, index) => (
+                            <tr key={index}>
+                                <td colSpan="4" className="expanded-cell">
+                                    <div style={{ display: 'flex', alignItems: 'center' }}>
+                                        <div style={{ flex: 1 }}>{item.especie}</div>
+                                        <div style={{ flex: 1 }}>{item.fenotipo}</div>
+                                        <div style={{ flex: 1 }}>{item.clima}</div>
+                                        <div>
+                                            <button onClick={() => toggleExpand(index)}>
+                                                {expandedRow === index ? '▲' : '▼'}
+                                            </button>
+                                        </div>
+                                    </div>
+        
+                                    {expandedRow === index && (
+                                        <div className="expanded-details">
+                                            <p><strong>Local:</strong> {item.local}</p>
+                                            <p><strong>Temperatura média:</strong> {item.temperatura_media}°C</p>
+                                            <p><strong>Solo:</strong> {item.solo}</p>
+                                            <p><strong>Observações:</strong> {item.observacoes}</p>
+                                        </div>
+                                    )}
+                                </td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            </div>
+        
     );
 };
 
