@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import '../../styles/CatalogTable/catalogtable.css';
 
-const CatalogTable = () => {
+const CatalogTable = ({ filters }) => {
     const [data, setData] = useState([]);
     const [expandedRow, setExpandedRow] = useState(null);
 
@@ -23,6 +23,17 @@ const CatalogTable = () => {
         setExpandedRow(expandedRow === index ? null : index);
     };
 
+    const applyFilters = (item) => {
+        const { search, location, climate, soil, temperature } = filters;
+        const matchesSearch = item.especie.toLowerCase().includes(search.toLowerCase());
+        const matchesLocation = !location.length || location.includes(item.local.toLowerCase());
+        const matchesClimate = !climate.length || climate.includes(item.clima.toLowerCase());
+        const matchesSoil = !soil.length || soil.includes(item.solo.toLowerCase());
+        const matchesTemperature = !temperature.length || temperature.includes(item.temperatura_media.toString());
+
+        return matchesSearch && matchesLocation && matchesClimate && matchesSoil && matchesTemperature;
+    };
+
     return (
         <div className="table-container">
             <table>
@@ -35,10 +46,9 @@ const CatalogTable = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {data.map((item, index) => (
+                    {data.filter(applyFilters).map((item, index) => (
                         <tr key={index}>
                             <td colSpan="4" className="expanded-cell">
-                                {/* Main Row */}
                                 <div style={{ display: 'flex', alignItems: 'center' }}>
                                     <div style={{ flex: 1 }}>{item.especie}</div>
                                     <div style={{ flex: 1 }}>{item.fenotipo}</div>
@@ -49,8 +59,6 @@ const CatalogTable = () => {
                                         </button>
                                     </div>
                                 </div>
-    
-                                {/* Expanded Row */}
                                 {expandedRow === index && (
                                     <div className="expanded-details">
                                         <p><strong>Local:</strong> {item.local}</p>

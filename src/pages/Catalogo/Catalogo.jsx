@@ -1,20 +1,28 @@
 import "../../styles/Catalogo/catalogo.css";
-import Table from "../../components/CatalogTable/CatalogTable.jsx";
+import CatalogTable from "../../components/CatalogTable/CatalogTable.jsx";
 import SearchBar from "../../components/SearchBar/SearchBar.jsx";
+import { useState } from "react";
 
 function Catalogo() {
+    const [filters, setFilters] = useState({
+        search: "",
+        location: [],
+        climate: [],
+        soil: [],
+        temperature: []
+    });
+
     return (
         <div className="catalogo-container">
             <div className="catalogo-content">
                 <div className="search-container">
-                    <SearchBar/>
+                    <SearchBar filters={filters} setFilters={setFilters} />
                 </div>
                 <div className="catalog-table">
-                    <Table/>
+                    <CatalogTable filters={filters} />
                 </div>
             </div>
         </div>
-
     );
 }
 
