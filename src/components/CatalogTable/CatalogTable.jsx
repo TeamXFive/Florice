@@ -40,21 +40,8 @@ const CatalogTable = ({search}) => {
                     </thead>
                     <tbody>
                         {data.filter((item) => {
-                            // return search.toLowerCase() === '' 
-                            // ? item : item.especie.toLowerCase().includes(search) ||
-                            // item.fenotipo.toLowerCase().includes(search) ||
-                            // item.clima.toLowerCase().includes(search) ||
-                            // item.local.toLowerCase().includes(search) ||
-                            // item.temperatura_media.toString().includes(search) ||
-                            // item.solo.toLowerCase().includes(search)
-                            // console.log(search)
-
-                            // Convert search terms into a regex pattern
-                            
-                            // Array of fields to search in each item
                             const fields = ['especie', 'fenotipo', 'clima', 'local', 'temperatura_media', 'solo'];
                         
-                            // Check if any field matches the regex pattern
                             return fields.some(field => searchPattern.test(item[field]?.toString()));
                             
                         }).map((item, index) => (

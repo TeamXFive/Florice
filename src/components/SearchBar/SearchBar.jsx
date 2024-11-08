@@ -14,7 +14,10 @@ export default function SearchBar({ search, setSearch }) {
         setSearch("")
     }
 
-    const checkBox = (isChecked, checkBoxName) => {
+    const checkBox = (e) => {
+        let isChecked = e.target.checked
+        let checkBoxName = e.target.value
+
         setSearch ((prevSearch) => {
             let newSearch = prevSearch.trim().split(" ");
             let newSearchString;
@@ -60,9 +63,6 @@ export default function SearchBar({ search, setSearch }) {
                     placeholder='Search'
                     onChange={(e) => setSearch(e.target.value)}    
                 />
-                <button type="submit" className="search-button">
-                    <img className="search-image" src="src\assets\images\catalogo\search.png"/>
-                </button>
             </div>
         
             <div className="filter-container">
@@ -73,43 +73,60 @@ export default function SearchBar({ search, setSearch }) {
                 <div className="filter-options">
                     <p className="filter-name">Localidade</p>
                     <div className="filter-content">
-                        <label><input type="checkbox"/>  brasil</label>
-                        <label><input type="checkbox"/>  eua</label>
-                        <label><input type="checkbox"/>  suécia</label>
+                        <label><input type="checkbox" value="Sul" onClick={(e) => {
+                            checkBox(e)
+                        }}/>  América do Sul</label>
+                        <label><input type="checkbox" value="Norte" onClick={(e) => {
+                            checkBox(e)
+                        }}/>  América do Norte</label>
+                        <label><input type="checkbox" value="Ásia" onClick={(e) => {
+                            checkBox(e)
+                        }}/>  Ásia</label>
+                        <label><input type="checkbox" value="Europa" onClick={(e) => {
+                            checkBox(e)
+                        }}/>  Europa</label>
                     </div>
                 </div>
 
                 <div className="filter-options">
                     <p className="filter-name">Clima</p>
                     <div className="filter-content">
-                        <label><input type="checkbox" value="esporádicas" onClick={(e) => {
-                            console.log(`está checked? ${e.target.checked}`)
-                            checkBox(e.target.checked, e.target.value)
-                        }
-                        }/>  chuvas esporádicas</label>
+                        <label><input type="checkbox" value="semiárido" onClick={(e) => {
+                            checkBox(e)
+                        }}/>  Semiárido</label>
                         <label><input type="checkbox" value="subtropical" onClick={(e) => {
-                            console.log(`valor subtro: ${e.target.value} estado: ${e.target.checked}`)
-                            checkBox(e.target.checked, e.target.value)
-                        }}/>  subtropical</label>
-                        <label><input type="checkbox"/>  úmido</label>
+                            checkBox(e)
+                        }}/>  Subtropical</label>
+                        <label><input type="checkbox" value="tropical" onClick={(e) => {
+                            checkBox(e)
+                        }}/>  Tropical</label>
+                        <label><input type="checkbox" value="árido" onClick={(e) => {
+                            checkBox(e)
+                        }}/>  Árido</label>
+                        <label><input type="checkbox" value="temperado" onClick={(e) => {
+                            checkBox(e)
+                        }}/>  Temperado</label>
+                        <label><input type="checkbox" value="frio" onClick={(e) => {
+                            checkBox(e)
+                        }}/>  Frio</label>
+                        <label><input type="checkbox" value="quente" onClick={(e) => {
+                            checkBox(e)
+                        }}/>  Quente</label>
                     </div>
                 </div>
 
                 <div className="filter-options">
                     <p className="filter-name">Solo</p>
                     <div className="filter-content">
-                        <label><input type="checkbox"/>  arenoso</label>
-                        <label><input type="checkbox"/>  argiloso</label>
-                        <label><input type="checkbox"/>  humoso</label>
-                    </div>
-                </div>
-
-                <div className="filter-options">
-                    <p className="filter-name">Temperatura</p>
-                    <div className="filter-content">
-                        <label><input type="checkbox" onClick={(e) => setSearch(e.target.value)}/>  30°</label>
-                        <label><input type="checkbox"/>  25°</label>
-                        <label><input type="checkbox"/>  24°</label>
+                        <label><input type="checkbox" value="arenoso" onClick={(e) => {
+                                checkBox(e)
+                            }}/>  Arenoso</label>
+                        <label><input type="checkbox" value="argiloso" onClick={(e) => {
+                                checkBox(e)
+                            }}/>  Argiloso</label>
+                        <label><input type="checkbox" value="rochoso" onClick={(e) => {
+                                checkBox(e)
+                            }}/>  Rochoso</label>
                     </div>
                 </div>
 
