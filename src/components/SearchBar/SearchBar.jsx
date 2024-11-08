@@ -14,6 +14,42 @@ export default function SearchBar({ search, setSearch }) {
         setSearch("")
     }
 
+    const checkBox = (isChecked, checkBoxName) => {
+        setSearch ((prevSearch) => {
+            let newSearch = prevSearch.trim().split(" ");
+            let newSearchString;
+            let emptyIndex;
+
+            if (!isChecked) {
+                const index = newSearch.indexOf(checkBoxName);
+                if (index > -1) {
+                    newSearch.splice(index, 1);
+                }
+
+            } else {
+    
+                if (!newSearch.includes(checkBoxName)) {
+                    newSearch.push(checkBoxName);
+                }
+               
+            }
+
+            console.log(newSearch)
+            if (newSearch.includes('')) {
+                emptyIndex = newSearch.indexOf('')
+                console.log(`index vazio: ${emptyIndex}`)
+                newSearch.splice(emptyIndex, 1)
+            }
+
+            newSearchString = newSearch.join(" ");
+            
+            return newSearchString
+            
+                
+            }   
+        )
+    }
+
     return (
         <div className="search-content">
             <form action="">
@@ -46,13 +82,15 @@ export default function SearchBar({ search, setSearch }) {
                 <div className="filter-options">
                     <p className="filter-name">Clima</p>
                     <div className="filter-content">
-                        <label><input type="checkbox" value="chuvas esporádicas" onClick={(e) => {
-                            setSearch(e.target.value)
+                        <label><input type="checkbox" value="esporádicas" onClick={(e) => {
+                            console.log(`está checked? ${e.target.checked}`)
+                            checkBox(e.target.checked, e.target.value)
                         }
                         }/>  chuvas esporádicas</label>
-                        <label><input type="checkbox" value="tropical úmido" onClick={(e) => {
-                            setSearch(e.target.value)
-                        }}/>  tropical úmido</label>
+                        <label><input type="checkbox" value="subtropical" onClick={(e) => {
+                            console.log(`valor subtro: ${e.target.value} estado: ${e.target.checked}`)
+                            checkBox(e.target.checked, e.target.value)
+                        }}/>  subtropical</label>
                         <label><input type="checkbox"/>  úmido</label>
                     </div>
                 </div>
