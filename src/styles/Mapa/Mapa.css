@@ -16,6 +16,13 @@
     width: 100px;
 }
 
+.mapa-content {
+    width: 90%;
+    height: 90%;
+    overflow: scroll;
+    border-radius: 10px;
+}
+
 .looker-container {
     margin: auto;
     max-height: calc(0.7 * ((100vw * 0.8) * 9 / 16));

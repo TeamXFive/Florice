@@ -35,33 +35,35 @@ export const Mapa = () => {
 
     return (
         <article className="mapa-container">
-            <MapContainer
-                style={{ height: "auto", width: "100%", aspectRatio: "16/9" }}
-                ref={mapRef}
-                whenReady={() => {
-                    console.log("Map is ready!");
-                }}
-                center={[0, 0]}
-                zoom={13}
-                scrollWheelZoom={false}
-            >
-                <TileLayer
-                    attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                    url="https://tile.openstreetmap.org/{z}/{x}/{y}.png"
-                />
-                {places.map(
-                    (place) =>
-                        place.latitude &&
-                        place.longitude && (
-                            <Marker
-                                key={place.ID}
-                                position={[place.latitude, place.longitude]}
-                            >
-                                <Popup>{place.DISPLAY_NAME}</Popup>
-                            </Marker>
-                        ),
-                )}
-            </MapContainer>
+            <div className="mapa-content">
+                <MapContainer
+                    style={{ height: "auto", width: "100%", aspectRatio: "16/9" }}
+                    ref={mapRef}
+                    whenReady={() => {
+                        console.log("Map is ready!");
+                    }}
+                    center={[0, 0]}
+                    zoom={13}
+                    scrollWheelZoom={false}
+                >
+                    <TileLayer
+                        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                        url="https://tile.openstreetmap.org/{z}/{x}/{y}.png"
+                    />
+                    {places.map(
+                        (place) =>
+                            place.latitude &&
+                            place.longitude && (
+                                <Marker
+                                    key={place.ID}
+                                    position={[place.latitude, place.longitude]}
+                                >
+                                    <Popup>{place.DISPLAY_NAME}</Popup>
+                                </Marker>
+                            ),
+                    )}
+                </MapContainer>
+            </div>
         </article>
     );
 };
