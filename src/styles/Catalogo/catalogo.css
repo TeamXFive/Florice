@@ -3,8 +3,7 @@
     background-size: cover;
     background-repeat: no-repeat;
     width: 100%;
-    min-height: 100vh;
-    height: auto;
+    height: 100vh;
     display: flex;
     align-items: center;
 }
@@ -27,6 +26,12 @@
     display: flex;
     justify-content: center;
     gap: 30px;
+    overflow: auto;
+}
+
+.search-container {
+    max-width: 400px;
+    min-width: 300px;
 }
 
 .catalog-table {

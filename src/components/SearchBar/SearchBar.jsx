@@ -131,8 +131,7 @@ export default function SearchBar({ search, setSearch }) {
                 </div>
 
                 <div className="reset-filter">
-                    <p>Filtros</p>
-                    <input className="reset-input" type="reset" value="Limpar" onClick={handleReset}/>
+                    <input className="reset-input" type="reset" value="Limpar filtros" onClick={handleReset}/>
                 </div>
 
                 
