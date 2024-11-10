@@ -1,19 +1,24 @@
 import React, { useState, useEffect } from 'react';
 import '../../styles/CatalogTable/catalogtable.css';
+import { Loading } from '../../Helper/Loading';
 
 const CatalogTable = ({search}) => {
     const [data, setData] = useState([]);
+    const [loading,setLoading] = useState(false)
     const [expandedRow, setExpandedRow] = useState(null);
 
     useEffect(() => {
         const fetchData = async () => {
             try {
+                setLoading(true)
                 const response = await fetch('http://localhost:8000/api/catalog');
                 if (!response.ok) throw new Error('Erro ao buscar dados');
                 const result = await response.json();
                 setData(result);
             } catch (error) {
                 console.error('Erro na requisição:', error);
+            } finally {
+                setLoading(false)
             }
         };
         fetchData();
@@ -29,7 +34,7 @@ const CatalogTable = ({search}) => {
     return (
             
             <div className="table-container">
-                <table>
+                {loading ? <div className='loading'><Loading /></div> : <table>
                     <thead>
                         <tr>
                             <th className="table-head">Espécie</th>
@@ -38,7 +43,7 @@ const CatalogTable = ({search}) => {
                             <th></th>
                         </tr>
                     </thead>
-                    <tbody>
+                     : <tbody>
                         {data.filter((item) => {
                             const fields = ['especie', 'fenotipo', 'clima', 'local', 'temperatura_media', 'solo'];
                         
@@ -70,7 +75,7 @@ const CatalogTable = ({search}) => {
                             </tr>
                         ))}
                     </tbody>
-                </table>
+                </table>}
             </div>
         
     );

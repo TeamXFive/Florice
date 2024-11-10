@@ -21,7 +21,7 @@ export default function NavBar() {
     }, [isMenuOpen]);
 
     return (
-        <nav className={`mainNavBar ${isHomePage && "home"}`}>
+        <nav className='mainNavBar'>
             <div className="florice-title">
                 <Link className="florice-name" to="/">
                     FLORICE
@@ -43,15 +43,15 @@ export default function NavBar() {
                 onBlur={() => setIsMenuOpen(false)}
                 tabIndex={-1}
             >
-                {!isHomePage && (
+                
                     <li>
                         <Link className="linkItems" to="/">
                             <div className="floricelink">Florice</div>
                         </Link>
                     </li>
-                )}
+
                 <li>
-                    <div className={!isHomePage ? "headerBorder active" : ""} />
+                    <div className={"headerBorder active"} />
                 </li>
                 <li>
                     <Link className="linkItems" to="/">

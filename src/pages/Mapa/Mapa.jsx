@@ -33,6 +33,8 @@ export const Mapa = () => {
         }
     }, [places]);
 
+    console.log(mapRef)
+
     return (
         <article className="mapa-container">
             <div className="mapa-content">
@@ -58,7 +60,9 @@ export const Mapa = () => {
                                     key={place.ID}
                                     position={[place.latitude, place.longitude]}
                                 >
-                                    <Popup>{place.DISPLAY_NAME}</Popup>
+                                    <Popup>{place.display_name} <br/>
+                                    {place.address} - {place.city} - {place.state}
+                                    </Popup>
                                 </Marker>
                             ),
                     )}
