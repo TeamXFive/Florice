@@ -1,10 +1,52 @@
+import { useAtom } from "jotai";
 import "../../styles/Login/login.css";
-import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import { userAtom } from "../../atoms/user";
 
 function Login() {
+    const navigate = useNavigate();
+    const [user, setUserAtom] = useAtom(userAtom);
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+
+    const handleFormSubmit = (e) => {
+        e.preventDefault();
+
+        const options = {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                email,
+                password,
+            }),
+        };
+
+        fetch("http://localhost:8000/api/login", options)
+            .then((response) => response.json())
+            .then((response) => {
+                if (response.error) {
+                    throw new Error(response.error);
+                } else {
+                    setUserAtom(response);
+                }
+            })
+            .catch((err) => {
+                console.error(err);
+                toast.error(err.message);
+            });
+    };
+
+    useEffect(() => {
+        if (user) {
+            navigate("/dashboard/places");
+        }
+    });
+
     return (
         <div className="login-container">
-            <div className="login-content">
+            <form className="login-content" onSubmit={handleFormSubmit}>
                 <img
                     src="src\assets\images\Login\flower-login.png"
                     alt=""
@@ -16,28 +58,32 @@ function Login() {
                 <div className="input-login-container">
                     <div className="input-box-login">
                         <img
+                            className="email-icon"
                             src="src\assets\images\Login\email.png"
                             alt=""
-                            className="email-icon"
                         />
                         <input
                             className="input-style-login"
-                            type="email"
+                            type="text"
                             id="emailLogin"
-                            placeholder="email"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                            placeholder="Usuário ou E-Mail"
                         />
                     </div>
 
                     <div className="input-box-login">
                         <img
+                            className="password-icons"
                             src="src\assets\images\Login\password.png"
                             alt=""
-                            className="password-icons"
                         />
                         <input
                             className="input-style-login"
                             type="password"
                             id="passwordLogin"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
                             placeholder="senha"
                         />
                     </div>
@@ -54,7 +100,9 @@ function Login() {
                 </div>
 
                 <div className="buttons">
-                    <button className="enterButton">Entrar</button>
+                    <button type="submit" className="enterButton">
+                        Entrar
+                    </button>
                 </div>
 
                 <div className="orSignup">
@@ -80,7 +128,7 @@ function Login() {
                         alt=""
                     />
                 </div>
-            </div>
+            </form>
         </div>
     );
 }

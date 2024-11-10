@@ -1,7 +1,6 @@
 import json
 import oracledb
 import os
-from http.server import BaseHTTPRequestHandler
 from urllib.parse import parse_qs
 from .convert_datetimes import convert_datetimes
 
@@ -49,7 +48,7 @@ def get(self, table):
         cursor.execute(f"SELECT * FROM {table} ORDER BY id ASC")
         raw_data = cursor.fetchall() 
 
-        columns = [col[0] for col in cursor.description]
+        columns = [col[0].lower() for col in cursor.description]
         
         data = [dict(zip(columns, row)) for row in raw_data]
         json_data = json.dumps(data, default=convert_datetimes)
@@ -58,7 +57,7 @@ def get(self, table):
         self.send_header("Content-Type", "application/json")
         sendCors(self)
         self.end_headers()
-        self.wfile.write(json_data.lower().encode('utf-8'))
+        self.wfile.write(json_data.encode('utf-8'))
     except oracledb.DatabaseError as e:
         error, = e.args
         self.send_response(500)
@@ -105,7 +104,7 @@ def post(self, table):
         
         raw_data = cursor.fetchall() 
 
-        columns = [col[0] for col in cursor.description]
+        columns = [col[0].lower() for col in cursor.description]
         
         data = [dict(zip(columns, row)) for row in raw_data]
         json_data = json.dumps(data[0], default=convert_datetimes)
@@ -114,7 +113,7 @@ def post(self, table):
         self.send_header("Content-Type", "application/json")
         sendCors(self)
         self.end_headers()
-        self.wfile.write(json_data.lower().encode('utf-8'))
+        self.wfile.write(json_data.encode('utf-8'))
     except oracledb.DatabaseError as e:
         error, = e.args
         self.send_response(500)
@@ -152,7 +151,7 @@ def put(self, table):
         
         raw_data = cursor.fetchall() 
 
-        columns = [col[0] for col in cursor.description]
+        columns = [col[0].lower() for col in cursor.description]
         
         data = [dict(zip(columns, row)) for row in raw_data]
         json_data = json.dumps(data[0], default=convert_datetimes)
@@ -161,7 +160,7 @@ def put(self, table):
         self.send_header("Content-Type", "application/json")
         sendCors(self)
         self.end_headers()
-        self.wfile.write(json_data.lower().encode('utf-8'))
+        self.wfile.write(json_data.encode('utf-8'))
     except oracledb.DatabaseError as e:
         error, = e.args
         self.send_response(500)

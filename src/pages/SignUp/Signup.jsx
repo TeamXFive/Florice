@@ -16,6 +16,8 @@ function SignUp() {
     const [notFocusedUser, isOnFocusUser] = useState(false);
     const [notFocusedEmail, isOnFocusEmail] = useState(false);
     const [notFocusedPassword, isOnFocusPassword] = useState(false);
+    const [notFocusedConfirmPassword, isOnFocusConfirmPassword] =
+        useState(false);
 
     const changeImage = (setNewImage, imgUrl, checkFocus, type) => {
         setNewImage(imgUrl);
@@ -53,7 +55,7 @@ function SignUp() {
                     />
                 </div>
 
-                <div className="create-account">
+                <form className="create-account">
                     <p className="create-account-call">Crie Sua Conta</p>
 
                     <div className="inputs-signup">
@@ -67,7 +69,8 @@ function SignUp() {
 
                             <input
                                 className="input-style-signup"
-                                placeholder="username"
+                                placeholder="Usuário"
+                                name="username"
                                 type="username"
                                 onBlur={() =>
                                     changeImage(
@@ -100,7 +103,8 @@ function SignUp() {
 
                             <input
                                 className="input-style-signup"
-                                placeholder="email"
+                                placeholder="E-Mail"
+                                name="email"
                                 type="email"
                                 onBlur={() =>
                                     changeImage(
@@ -133,7 +137,8 @@ function SignUp() {
 
                             <input
                                 className="input-style-signup"
-                                placeholder="password"
+                                placeholder="Senha"
+                                name="password"
                                 type="password"
                                 onBlur={() =>
                                     changeImage(
@@ -150,6 +155,34 @@ function SignUp() {
                                         true,
                                         "password"
                                     )
+                                }
+                            />
+                        </div>
+
+                        <div className="individual-input-container">
+                            <img
+                                className={
+                                    notFocusedConfirmPassword
+                                        ? "box-img-focus"
+                                        : "box-img"
+                                }
+                                src={
+                                    notFocusedConfirmPassword
+                                        ? "src/assets/images/Login/password.png"
+                                        : "src/assets/images/Login/password-green.png"
+                                }
+                            />
+
+                            <input
+                                className="input-style-signup"
+                                placeholder="Confirmar Senha"
+                                name="confirmPassword"
+                                type="password"
+                                onBlur={() =>
+                                    isOnFocusConfirmPassword(() => true)
+                                }
+                                onFocus={() =>
+                                    isOnFocusConfirmPassword(() => false)
                                 }
                             />
                         </div>
@@ -174,7 +207,7 @@ function SignUp() {
                         />
                         <img src="src/assets/images/Login/google.png" alt="" />
                     </div>
-                </div>
+                </form>
             </div>
         </div>
     );

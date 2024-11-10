@@ -3,12 +3,12 @@ import importlib
 import os
 from dotenv import load_dotenv
 import sys
+import json
 
 load_dotenv()
 
 class ApiRedirectHandler(BaseHTTPRequestHandler):
     allowed_origins = {"http://localhost:5173", "https://florice-blue.vercel.app"}
-
 
     def set_cors_headers(self):
         origin = self.headers.get("Origin")
@@ -93,8 +93,12 @@ class ApiRedirectHandler(BaseHTTPRequestHandler):
                 
         except Exception as e:
             self.send_response(500)
+            self.send_header("Content-Type", "application/json")
+            self.set_cors_headers()
             self.end_headers()
-            self.wfile.write(f"Error handling API request: {e}".encode('utf-8'))
+            error_msg = repr(e)
+            response = {"error": f"Error handling API request: {error_msg}"}
+            self.wfile.write(json.dumps(response).encode("utf-8"))
 
 if __name__ == '__main__':
     try:

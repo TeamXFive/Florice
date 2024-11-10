@@ -2,6 +2,9 @@ import "../../styles/NavBar/navbar.css";
 import { useEffect, useRef, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import MenuIcon from "../../assets/icons/menu.svg?react";
+import { useAtomValue } from "jotai";
+import { userAtom } from "../../atoms/user";
+import { toFirstUpperCase } from "../../utils/text";
 
 export default function NavBar() {
     const location = useLocation();
@@ -12,6 +15,7 @@ export default function NavBar() {
     const isLoginPage = location.pathname === "/login";
 
     const menuRef = useRef();
+    const user = useAtomValue(userAtom);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     useEffect(() => {
@@ -21,7 +25,7 @@ export default function NavBar() {
     }, [isMenuOpen]);
 
     return (
-        <nav className='mainNavBar'>
+        <nav className="mainNavBar">
             <div className="florice-title">
                 <Link className="florice-name" to="/">
                     FLORICE
@@ -43,12 +47,11 @@ export default function NavBar() {
                 onBlur={() => setIsMenuOpen(false)}
                 tabIndex={-1}
             >
-                
-                    <li>
-                        <Link className="linkItems" to="/">
-                            <div className="floricelink">Florice</div>
-                        </Link>
-                    </li>
+                <li>
+                    <Link className="linkItems" to="/">
+                        <div className="floricelink">Florice</div>
+                    </Link>
+                </li>
 
                 <li>
                     <div className={"headerBorder active"} />
@@ -93,16 +96,38 @@ export default function NavBar() {
                         ></div>
                     </Link>
                 </li>
-                <li>
-                    <Link className="linkItems" to="/login">
-                        <div>login</div>
-                        <div
-                            className={`menu-border loginBorder ${
-                                isLoginPage ? "active" : ""
-                            }`}
-                        ></div>
-                    </Link>
-                </li>
+                {user ? (
+                    <>
+                        <li>
+                            <Link className="linkItems" to="/dashboard/places">
+                                <div>{toFirstUpperCase(user.username)}</div>
+                                <div
+                                    className={`menu-border loginBorder ${
+                                        isLoginPage ? "active" : ""
+                                    }`}
+                                ></div>
+                            </Link>
+                        </li>
+                        <li>
+                            <Link className="linkItems" to="/logout">
+                                <small>
+                                    <i className="fa fa-sign-out" />
+                                </small>
+                            </Link>
+                        </li>
+                    </>
+                ) : (
+                    <li>
+                        <Link className="linkItems" to="/login">
+                            <div>login</div>
+                            <div
+                                className={`menu-border loginBorder ${
+                                    isLoginPage ? "active" : ""
+                                }`}
+                            ></div>
+                        </Link>
+                    </li>
+                )}
             </ul>
         </nav>
     );
