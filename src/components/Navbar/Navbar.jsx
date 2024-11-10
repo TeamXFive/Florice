@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import MenuIcon from "../../assets/icons/menu.svg?react";
 import { useAtomValue } from "jotai";
-import { userAtom } from "../../atoms/user";
+import { userAtom } from "../../state/user_atom";
 import { toFirstUpperCase } from "../../utils/text";
 
 export default function NavBar() {

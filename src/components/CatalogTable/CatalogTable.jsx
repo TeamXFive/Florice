@@ -1,24 +1,25 @@
-import React, { useState, useEffect } from 'react';
-import '../../styles/CatalogTable/catalogtable.css';
-import { Loading } from '../../Helper/Loading';
+import { useState, useEffect } from "react";
+import "../../styles/CatalogTable/catalogtable.css";
+import { Loading } from "../../Helper/Loading";
+import { apiEndpoint } from "../../utils/api";
 
-const CatalogTable = ({search}) => {
+const CatalogTable = ({ search }) => {
     const [data, setData] = useState([]);
-    const [loading,setLoading] = useState(false)
+    const [loading, setLoading] = useState(false);
     const [expandedRow, setExpandedRow] = useState(null);
 
     useEffect(() => {
         const fetchData = async () => {
             try {
-                setLoading(true)
-                const response = await fetch('http://localhost:8000/api/catalog');
-                if (!response.ok) throw new Error('Erro ao buscar dados');
+                setLoading(true);
+                const response = await fetch(`${apiEndpoint()}/catalog`);
+                if (!response.ok) throw new Error("Erro ao buscar dados");
                 const result = await response.json();
                 setData(result);
             } catch (error) {
-                console.error('Erro na requisição:', error);
+                console.error("Erro na requisição:", error);
             } finally {
-                setLoading(false)
+                setLoading(false);
             }
         };
         fetchData();
@@ -28,13 +29,23 @@ const CatalogTable = ({search}) => {
         setExpandedRow(expandedRow === index ? null : index);
     };
 
-    const searchPattern = new RegExp(search.split(" ").map(term => `(${term})`).join("|"), "i");
-    console.log(searchPattern)
+    const searchPattern = new RegExp(
+        search
+            .split(" ")
+            .map((term) => `(${term})`)
+            .join("|"),
+        "i"
+    );
+    console.log(searchPattern);
 
     return (
-            
-            <div className="table-container">
-                {loading ? <div className='loading'><Loading /></div> : <table>
+        <div className="table-container">
+            {loading ? (
+                <div className="loading">
+                    <Loading />
+                </div>
+            ) : (
+                <table>
                     <thead>
                         <tr>
                             <th className="table-head">Espécie</th>
@@ -43,41 +54,85 @@ const CatalogTable = ({search}) => {
                             <th></th>
                         </tr>
                     </thead>
-                     : <tbody>
-                        {data.filter((item) => {
-                            const fields = ['especie', 'fenotipo', 'clima', 'local', 'temperatura_media', 'solo'];
-                        
-                            return fields.some(field => searchPattern.test(item[field]?.toString()));
-                            
-                        }).map((item, index) => (
-                            <tr key={index}>
-                                <td colSpan="4" className="expanded-cell">
-                                    <div style={{ display: 'flex', alignItems: 'center' }}>
-                                        <div style={{ flex: 1 }}>{item.especie}</div>
-                                        <div style={{ flex: 1 }}>{item.fenotipo}</div>
-                                        <div style={{ flex: 1 }}>{item.clima}</div>
-                                        <div>
-                                            <button onClick={() => toggleExpand(index)}>
-                                                {expandedRow === index ? '▲' : '▼'}
-                                            </button>
+                    :{" "}
+                    <tbody>
+                        {data
+                            .filter((item) => {
+                                const fields = [
+                                    "especie",
+                                    "fenotipo",
+                                    "clima",
+                                    "local",
+                                    "temperatura_media",
+                                    "solo",
+                                ];
+
+                                return fields.some((field) =>
+                                    searchPattern.test(item[field]?.toString())
+                                );
+                            })
+                            .map((item, index) => (
+                                <tr key={index}>
+                                    <td colSpan="4" className="expanded-cell">
+                                        <div
+                                            style={{
+                                                display: "flex",
+                                                alignItems: "center",
+                                            }}
+                                        >
+                                            <div style={{ flex: 1 }}>
+                                                {item.especie}
+                                            </div>
+                                            <div style={{ flex: 1 }}>
+                                                {item.fenotipo}
+                                            </div>
+                                            <div style={{ flex: 1 }}>
+                                                {item.clima}
+                                            </div>
+                                            <div>
+                                                <button
+                                                    onClick={() =>
+                                                        toggleExpand(index)
+                                                    }
+                                                >
+                                                    {expandedRow === index
+                                                        ? "▲"
+                                                        : "▼"}
+                                                </button>
+                                            </div>
                                         </div>
-                                    </div>
-        
-                                    {expandedRow === index && (
-                                        <div className="expanded-details">
-                                            <p><strong>Local:</strong> {item.local}</p>
-                                            <p><strong>Temperatura média:</strong> {item.temperatura_media}°C</p>
-                                            <p><strong>Solo:</strong> {item.solo}</p>
-                                            <p><strong>Observações:</strong> {item.observacoes}</p>
-                                        </div>
-                                    )}
-                                </td>
-                            </tr>
-                        ))}
+
+                                        {expandedRow === index && (
+                                            <div className="expanded-details">
+                                                <p>
+                                                    <strong>Local:</strong>{" "}
+                                                    {item.local}
+                                                </p>
+                                                <p>
+                                                    <strong>
+                                                        Temperatura média:
+                                                    </strong>{" "}
+                                                    {item.temperatura_media}°C
+                                                </p>
+                                                <p>
+                                                    <strong>Solo:</strong>{" "}
+                                                    {item.solo}
+                                                </p>
+                                                <p>
+                                                    <strong>
+                                                        Observações:
+                                                    </strong>{" "}
+                                                    {item.observacoes}
+                                                </p>
+                                            </div>
+                                        )}
+                                    </td>
+                                </tr>
+                            ))}
                     </tbody>
-                </table>}
-            </div>
-        
+                </table>
+            )}
+        </div>
     );
 };
 

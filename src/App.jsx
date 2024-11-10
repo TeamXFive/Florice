@@ -10,12 +10,13 @@ import Login from "./pages/Login/Login";
 import NavBar from "./components/Navbar/Navbar";
 import SignUp from "./pages/SignUp/Signup";
 import Sobre from "./pages/Sobre/Sobre";
-import { useSetAtom } from "jotai";
-import { userAtom } from "./atoms/user";
+import { useAtom } from "jotai";
+import { userAtom } from "./state/user_atom";
+import { Navigate } from "react-router-dom";
 
 function App() {
     const navigate = useNavigate();
-    const setUserAtom = useSetAtom(userAtom);
+    const [user, setUserAtom] = useAtom(userAtom);
     const handleLogout = () => {
         setUserAtom(null);
         navigate("/");
@@ -32,8 +33,13 @@ function App() {
                     <Route path="/mapa" element={<Mapa />} />
                     <Route path="/login" element={<Login />} />
                     <Route path="/signup" element={<SignUp />} />
-                    {/* TODO - Put behind auth wall */}
-                    <Route path="/dashboard/:type" element={<Dashboard />} />
+
+                    {user && (
+                        <Route
+                            path="/dashboard/:type"
+                            element={<Dashboard />}
+                        />
+                    )}
 
                     <Route
                         path="/logout"
@@ -41,6 +47,8 @@ function App() {
                             handleLogout();
                         }}
                     />
+
+                    <Route path="*" element={<Navigate to="/" />} />
                 </Routes>
             </main>
             <ToastContainer position="bottom-right" />

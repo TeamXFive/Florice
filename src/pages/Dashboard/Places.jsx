@@ -6,6 +6,7 @@ import {
     toTitleCase,
 } from "../../utils/text";
 import { useEffect, useState, useRef } from "react";
+import { apiEndpoint } from "../../utils/api";
 
 // Place fields
 // id
@@ -42,7 +43,7 @@ export const Places = () => {
             headers: {},
         };
 
-        fetch("http://localhost:8000/api/places", options)
+        fetch(`${apiEndpoint()}/places`, options)
             .then((response) => response.json())
             .then((response) => setPlaces(response))
             .catch((err) => console.error(err));
@@ -68,7 +69,7 @@ export const Places = () => {
             headers: { "Content-Type": "application/json" },
         };
 
-        fetch(`http://localhost:8000/api/places?id=${id}`, options)
+        fetch(`${apiEndpoint()}/places?id=${id}`, options)
             .then((response) => response.json())
             .then((response) => {
                 if (response.error) {
@@ -127,7 +128,7 @@ export const Places = () => {
             body: JSON.stringify(formInput),
         };
 
-        fetch("http://localhost:8000/api/places", options)
+        fetch(`${apiEndpoint()}/places`, options)
             .then((response) => response.json())
             .then((response) => {
                 if (response.error) {

@@ -3,7 +3,14 @@ import "../../styles/Login/login.css";
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import { userAtom } from "../../atoms/user";
+import { userAtom } from "../../state/user_atom";
+import { apiEndpoint } from "../../utils/api";
+import LoginFlower from "../../assets/images/Login/flower-login.png";
+import EmailIcon from "../../assets/images/Login/email.png";
+import PasswordIcon from "../../assets/images/Login/password.png";
+import LinkedInIcon from "../../assets/images/Login/linkedin.png";
+import FacebookIcon from "../../assets/images/Login/facebook.png";
+import GoogleIcon from "../../assets/images/Login/google.png";
 
 function Login() {
     const navigate = useNavigate();
@@ -23,7 +30,7 @@ function Login() {
             }),
         };
 
-        fetch("http://localhost:8000/api/login", options)
+        fetch(`${apiEndpoint()}/login`, options)
             .then((response) => response.json())
             .then((response) => {
                 if (response.error) {
@@ -47,21 +54,13 @@ function Login() {
     return (
         <div className="login-container">
             <form className="login-content" onSubmit={handleFormSubmit}>
-                <img
-                    src="src\assets\images\Login\flower-login.png"
-                    alt=""
-                    className="flower-icon"
-                />
+                <img src={LoginFlower} alt="" className="flower-icon" />
 
                 <p className="login-name">Login</p>
 
                 <div className="input-login-container">
                     <div className="input-box-login">
-                        <img
-                            className="email-icon"
-                            src="src\assets\images\Login\email.png"
-                            alt=""
-                        />
+                        <img className="email-icon" src={EmailIcon} alt="" />
                         <input
                             className="input-style-login"
                             type="text"
@@ -75,7 +74,7 @@ function Login() {
                     <div className="input-box-login">
                         <img
                             className="password-icons"
-                            src="src\assets\images\Login\password.png"
+                            src={PasswordIcon}
                             alt=""
                         />
                         <input
@@ -112,21 +111,9 @@ function Login() {
                 </div>
 
                 <div className="socialMediasIcon">
-                    <img
-                        className="socialMediaImg"
-                        src="src\assets\images\Login\linkedin.png"
-                        alt=""
-                    />
-                    <img
-                        className="socialMediaImg"
-                        src="src\assets\images\Login\facebook.png"
-                        alt=""
-                    />
-                    <img
-                        className="socialMediaImg"
-                        src="src\assets\images\Login\google.png"
-                        alt=""
-                    />
+                    <img className="socialMediaImg" src={LinkedInIcon} alt="" />
+                    <img className="socialMediaImg" src={FacebookIcon} alt="" />
+                    <img className="socialMediaImg" src={GoogleIcon} alt="" />
                 </div>
             </form>
         </div>

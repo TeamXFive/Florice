@@ -1,6 +1,7 @@
 import "../../styles/Mapa/Mapa.css";
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import { useRef, useEffect, useState } from "react";
+import { apiEndpoint } from "../../utils/api";
 
 export const Mapa = () => {
     const mapRef = useRef();
@@ -12,7 +13,7 @@ export const Mapa = () => {
             headers: {},
         };
 
-        fetch("http://localhost:8000/api/places", options)
+        fetch(`${apiEndpoint()}/places`, options)
             .then((response) => response.json())
             .then((response) => setPlaces(response))
             .catch((err) => console.error(err));
@@ -20,7 +21,7 @@ export const Mapa = () => {
 
     useEffect(() => {
         const placesWithCoordinates = places.filter(
-            (place) => place.latitude && place.longitude,
+            (place) => place.latitude && place.longitude
         );
 
         if (placesWithCoordinates.length > 0 && mapRef.current) {
@@ -28,18 +29,22 @@ export const Mapa = () => {
                 placesWithCoordinates.map((place) => [
                     place.latitude,
                     place.longitude,
-                ]),
+                ])
             );
         }
     }, [places]);
 
-    console.log(mapRef)
+    console.log(mapRef);
 
     return (
         <article className="mapa-container">
             <div className="mapa-content">
                 <MapContainer
-                    style={{ height: "auto", width: "100%", aspectRatio: "16/9" }}
+                    style={{
+                        height: "auto",
+                        width: "100%",
+                        aspectRatio: "16/9",
+                    }}
                     ref={mapRef}
                     whenReady={() => {
                         console.log("Map is ready!");
@@ -60,11 +65,13 @@ export const Mapa = () => {
                                     key={place.ID}
                                     position={[place.latitude, place.longitude]}
                                 >
-                                    <Popup>{place.display_name} <br/>
-                                    {place.address} - {place.city} - {place.state}
+                                    <Popup>
+                                        {place.display_name} <br />
+                                        {place.address} - {place.city} -{" "}
+                                        {place.state}
                                     </Popup>
                                 </Marker>
-                            ),
+                            )
                     )}
                 </MapContainer>
             </div>
