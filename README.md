@@ -1,14 +1,32 @@
+# Live Preview
+
+[https://florice-blue.vercel.app/](https://florice-blue.vercel.app/)
+
 # Instruções:
 
 #### Para iniciar o projeto:
 
 1. rode o comando `npm install` no terminal
-2. rode o comando `npm run dev` no terminal
-3. acesse o projeto pelo [http://localhost:5173/](http://localhost:5173/)
+2. rode o comando `pip install -r requirements.txt` no terminal
+3. rode o comando `npm run fe` no terminal
+4. rode o comando `python serve.py` no terminal
+5. acesse o projeto pelo [http://localhost:5173/](http://localhost:5173/)
 
-# Video
+# Video Sprint 2
 
 Link do video: [https://youtu.be/8jEwIoTJDmM](https://youtu.be/8jEwIoTJDmM)
+
+# Video Sprint 3 (Final)
+
+Link do video: [https://youtu.be/S8hX30eonUg](https://youtu.be/S8hX30eonUg)
+
+## Tecnologias utilizadas
+
+-   Python
+    -   OracleDB
+    -   bCrypt
+-   React + Vite
+    -   Bootstrap
 
 ## Extras
 

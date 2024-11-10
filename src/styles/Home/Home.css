@@ -55,9 +55,9 @@
         }
 
         & img {
-            max-width: 100%;
+            max-width: 80%;
             width: 600px;
-            max-height: 80%;
+            max-height: 50%;
             aspect-ratio: 737/491;
             object-fit: cover;
             border-radius: 224px;
@@ -78,6 +78,31 @@
             padding: 1.75rem;
             background-color: rgba(244, 241, 145, 0.28);
             color: white;
+        }
+    }
+
+    .video-container {
+        margin: 4rem 0;
+        width: 40%;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+
+        iframe {
+            margin-top: 1rem;
+            width: 100%;
+            aspect-ratio: 16/9;
+            border: none;
+            border-radius: 1rem;
+            box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.75);
+            padding: 0.35rem;
+            background-color: #161e18;
+        }
+
+        p {
+            margin-top: 1rem;
+            font-size: 80%;
+            text-align: center;
         }
     }
 }

@@ -25,6 +25,23 @@ function Home() {
                     </p>
                 </div>
             </div>
+
+            <div className="video-container">
+                <h2>Veja mais aqui </h2>
+                <iframe
+                    src="https://www.youtube.com/embed/S8hX30eonUg"
+                    title="Florice MVP - PBL Final"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerPolicy="strict-origin-when-cross-origin"
+                    allowfullscreen
+                ></iframe>
+                <p>
+                    Click aqui caso o vídeo não carregue:{" "}
+                    <a href="https://www.youtube.com/watch?v=S8hX30eonUg">
+                        https://www.youtube.com/embed/S8hX30eonUg
+                    </a>
+                </p>
+            </div>
         </div>
     );
 }
