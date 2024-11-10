@@ -13,29 +13,29 @@ function Login() {
 
                 <p className="login-name">Login</p>
 
-                <div className="input-container">
-                    <div className="input-box">
+                <div className="input-login-container">
+                    <div className="input-box-login">
                         <img
                             src="src\assets\images\Login\email.png"
                             alt=""
                             className="email-icon"
                         />
                         <input
-                            className="input-style"
+                            className="input-style-login"
                             type="email"
                             id="emailLogin"
                             placeholder="email"
                         />
                     </div>
 
-                    <div className="input-box">
+                    <div className="input-box-login">
                         <img
                             src="src\assets\images\Login\password.png"
                             alt=""
                             className="password-icons"
                         />
                         <input
-                            className="input-style"
+                            className="input-style-login"
                             type="password"
                             id="passwordLogin"
                             placeholder="senha"
